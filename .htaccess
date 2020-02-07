@@ -1,0 +1,12 @@
+Options -Multiviews
+
+RewriteEngine On 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteRule ^(.*)/(.*)/(.*)/(.*)/(.*)/(.*)$ index.php?url=$1&url2=$2/$3/$4/$5/$6 [QSA] 
+#RewriteRule ^(.*)/(.*)/(.*)/(.*)/(.*)$ index.php?url=$1&url2=$2/$3/$4/$5 [QSA] 
+#RewriteRule ^(.*)/(.*)/(.*)/(.*)$ index.php?url=$1&url2=$2/$3/$4 [QSA] 
+#RewriteRule ^(.*)/(.*)/(.*)$ index.php?url=$1&url2=$2/$3 [QSA] 
+#RewriteRule ^(.*)/(.*)$ index.php?url=$1&url2=$2 [QSA] 
+RewriteRule ^(.*)$ index.php [L]
+ 
