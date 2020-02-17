@@ -18,7 +18,7 @@
         public function Add_Saham(){
             if(Session::check('admin') == true ){ 
                 $this->view('template/header');
-                $this->view('pages/saham/add_Saham');
+                $this->view('pages/saham/add_saham');
                 $this->view('template/footer');	
         }else{
             redirect('/login');
