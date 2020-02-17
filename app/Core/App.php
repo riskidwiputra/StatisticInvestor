@@ -495,3 +495,17 @@
 	$result= str_replace(' ','-',trim(str_replace($filter,$teks)));
 	return $result;
 	}
+	function rupiah($uang){
+		echo "Rp. ".number_format($uang,0,',','.').",-";
+	}
+	function lembar($uang){
+		echo number_format($uang,0,',','.')." Lembar";
+	}
+	function IDR($uang){
+		echo "IDR ".number_format($uang,0,',','.').",00-,";
+	}
+	function Format($uang){
+		echo number_format($uang,0,',','.');
+	}
+
+	

@@ -12,9 +12,14 @@ class Config
 
 
 		define('DB_HOST', 'localhost');
-		define('DB_USER', 'root');
-		define('DB_PASS', '');
-		define('DB_NAME', 'db_investor'); 
+		define('DB_USER', 'u8127881_investor');
+		define('DB_PASS', '1nvestor12345');
+		define('DB_NAME', 'u8127881_investor'); 
+
+		// define('DB_HOST', 'localhost');
+		// define('DB_USER', 'root');
+		// define('DB_PASS', '');
+		// define('DB_NAME', 'investor'); 
 
 		define('CONTROLLER', 'home');
 		define('METHOD', 'index');	
