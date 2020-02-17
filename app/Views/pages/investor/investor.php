@@ -22,7 +22,7 @@
                     <a href="<?= url("add-investor") ?>"> <button class="btn btn-inverse-primary"><span class="fa fa-plus-circle fa-spin"></span> Add Data Investor </button></a>
                     </p>
                     
-                    <table class="table table-striped" id="example">
+                    <table id="example" class="table table-striped table-bordered"  style="width:100%">
                         <thead>
                         <tr>
                             <th width="12%" > User </th>

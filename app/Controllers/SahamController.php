@@ -29,7 +29,7 @@
             $data['content'] = $this->db->table('saham')->where('id_saham', $id); 
             if(Session::check('admin') == true ){ 
                 $this->view('template/header');
-                $this->view('pages/Saham/edit_Saham',$data);
+                $this->view('pages/saham/edit_saham',$data);
                 $this->view('template/footer');	
         }else{
             redirect('/login');
