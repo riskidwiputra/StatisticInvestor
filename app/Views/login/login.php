@@ -29,10 +29,10 @@
           
             <div class="col-lg-4 mx-auto">
             
-              <div class="auth-form-light text-left p-5">
+              <div class="auth-form-light text-center p-5">
               
                 <div class="brand-logo">
-                  <img src="<?=asset('assets/images/streammm-universe.png');?>">
+                  <img src="<?=asset('assets/images/streammm-universe.png');?>" width="200px">
                 </div>
                 <div class="col-lg-12">
 							<?php Flasher::flash();?>

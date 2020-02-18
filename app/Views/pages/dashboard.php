@@ -39,6 +39,20 @@
               </div>
             </div>
 
+            <div class="row">
+              <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                
+                    <figure class="highcharts-figure">
+                        <div id="chartpie"></div>
+                    </figure>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
 
             <div class="row">
               <div class="col-md-4 stretch-card grid-margin">
@@ -280,11 +294,68 @@
           <!-- content-wrapper ends -->
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-3d.js"></script>
 <script src="https://code.highcharts.com/modules/data.js"></script>
 <script src="https://code.highcharts.com/modules/drilldown.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script>
+  Highcharts.chart('chartpie', {
+    chart: {
+        type: 'pie',
+        options3d: {
+            enabled: true,
+            alpha: 45,
+            beta: 0
+        }
+    },
+    title: {
+        text: 'Grafik Saham Investor'
+    },
+    accessibility: {
+        point: {
+            valueSuffix: '%'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:14px"><b>{series.name}</b></span><br>',
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y} Lembar</b> of 50.000 Lembar<br/>',
+        footerFormat: 'Percentage : {point.percentage:.1f}%'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            depth: 35,
+            dataLabels: {
+                enabled: true,
+                format: '{point.name}'
+            }
+        }
+    },
+    series: [{
+        type: 'pie',
+        name: "<?= $data['saham']['name_saham'] ?>",
+        keys: ['name', 'y', 'selected', 'sliced'],
+        data: [
+          <?php foreach ($data['investasi'] as $rows){
+            echo '{name:"'.$rows['id_investor'].'",y:'.$rows['total_saham'].',selected:"false",sliced:"false"},';
+          }?>
+            // ['Apples', 29.9, false],
+            // ['Pears', 71.5, false],
+            // ['Oranges', 106.4, false],
+            // ['Plums', 129.2, false],
+            // ['Bananas', 144.0, false],
+            // ['Peaches', 176.0, false],
+            // ['Prunes', 135.6, false],
+            // ['Avocados', 148.5, false]
+        ],
+        showInLegend: true
+    }]
+});
+</script>
+
 <script>
 // Create the chart
 Highcharts.chart('container', {

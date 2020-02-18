@@ -34,5 +34,6 @@
                 redirect('/investor');
                 exit;
             }   
+            
         }
     }

@@ -12632,9 +12632,9 @@ dl {
     border-color: #ebedf2; }
 
 .auth .brand-logo {
-  margin-bottom: 2rem; }
+  margin-bottom: 0rem; }
   .auth .brand-logo img {
-    width: 150px; }
+    width: 400px; }
 
 .auth form .form-group {
   margin-bottom: 1.5rem; }
