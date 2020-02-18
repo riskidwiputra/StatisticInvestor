@@ -14,6 +14,7 @@
 
         <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
+                <div class="table-responsive">
                 <div class="col-lg">
                 <?php Flasher::flash();?> 
             </div>
@@ -48,6 +49,7 @@
                         </tbody>
                     </table>
                     </div>
+                </div>
                 </div>
                 </div>
                 </div>
