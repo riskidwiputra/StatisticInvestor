@@ -7,6 +7,8 @@
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                   <i class="mdi mdi-home"></i>
                 </span> Dashboard </h3>
+                <?php if(Session::check('admin') == true){ }else{ ?>
+            
               <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
                   <li class="breadcrumb-item active align-middle" aria-current="page">
@@ -14,12 +16,12 @@
                     ($data['saldo']); ?></h4>
                     <?php if ($data['saldo']) ?>  
                   </li>
-                  
                   <li>
                   <i class="mdi mdi-wallet icon-md text-primary pl-2 align-middle d-none d-xl-block"></i>
                   </li>
                 </ul>
               </nav>
+              <?php } ?>
             </div>
 
             <div class="row">
@@ -28,9 +30,10 @@
                   <div class="card-body">
                 
                       <figure class="highcharts-figure">
-                        <div id="container"></div>
+                        <div id="container" class="d-none d-lg-block d-xl-block"></div>
+                        <div id="chartpie" class="d-xl-none d-lg-none"></div>
                         <p class="highcharts-description">
-                       
+                  
                         </p>
                     </figure>
 
@@ -39,19 +42,7 @@
               </div>
             </div>
 
-            <div class="row">
-              <div class="col-md-12 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                
-                    <figure class="highcharts-figure">
-                        <div id="chartpie"></div>
-                    </figure>
 
-                  </div>
-                </div>
-              </div>
-            </div>
 
 
             <div class="row">
@@ -88,100 +79,7 @@
                 </div>
               </div>
             </div>
-            <!--<div class="row">-->
-            <!--  <div class="col-md-12 grid-margin stretch-card">-->
-            <!--    <div class="card">-->
-            <!--      <div class="card-body">-->
-            <!--        <div class="clearfix">-->
-            <!--          <h4 class="card-title float-left">Company Capital</h4>-->
-                      
-            <!--        </div>-->
-            <!--        <canvas id="linechart" width="100%" height="30%"></canvas>-->
-            <!--        <script  type="text/javascript">-->
-            <!--            var ctx = document.getElementById("linechart").getContext("2d");-->
-            <!--            var data = {-->
-            <!--                      labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],-->
-            <!--                      datasets: [-->
-            <!--                            {-->
-            <!--                              label: "Laptop",-->
-            <!--                              fill: false,-->
-            <!--                              lineTension: 0.1,-->
-            <!--                              backgroundColor: "#29B0D0",-->
-            <!--                              borderColor: "#29B0D0",-->
-            <!--                              pointHoverBackgroundColor: "#29B0D0",-->
-            <!--                              pointHoverBorderColor: "#29B0D0",-->
-            <!--                              data: [900,230,600,433,543,233,908,809,765,999,4333,888]-->
-            <!--                            },-->
-            <!--                            {-->
-            <!--                              label: "PC",-->
-            <!--                              fill: false,-->
-            <!--                              lineTension: 0.1,-->
-            <!--                              backgroundColor: "#2A516E",-->
-            <!--                              borderColor: "#2A516E",-->
-            <!--                              pointHoverBackgroundColor: "#2A516E",-->
-            <!--                              pointHoverBorderColor: "#2A516E",-->
-            <!--                              data: [900,230,600,433,543,233,908,809,765,999,4333,888]-->
-            <!--                            },-->
-            <!--                            {-->
-            <!--                              label: "Monitor",-->
-            <!--                              fill: false,-->
-            <!--                              lineTension: 0.1,-->
-            <!--                              backgroundColor: "#F07124",-->
-            <!--                              borderColor: "#F07124",-->
-            <!--                              pointHoverBackgroundColor: "#F07124",-->
-            <!--                              pointHoverBorderColor: "#F07124",-->
-            <!--                              data: [900,230,600,433,543,233,908,809,765,999,4333,888]-->
-            <!--                            },-->
-            <!--                            {-->
-            <!--                              label: "Printer",-->
-            <!--                              fill: false,-->
-            <!--                              lineTension: 0.1,-->
-            <!--                              backgroundColor: "#CBE0E3",-->
-            <!--                              borderColor: "#CBE0E3",-->
-            <!--                              pointHoverBackgroundColor: "#CBE0E3",-->
-            <!--                              pointHoverBorderColor: "#CBE0E3",-->
-            <!--                              data: [900,230,600,433,543,233,908,809,765,999,4333,888]-->
-            <!--                            },-->
-            <!--                            {-->
-            <!--                              label: "Scanner",-->
-            <!--                              fill: false,-->
-            <!--                              lineTension: 0.1,-->
-            <!--                              backgroundColor: "#979193",-->
-            <!--                              borderColor: "#979193",-->
-            <!--                              pointHoverBackgroundColor: "#979193",-->
-            <!--                              pointHoverBorderColor: "#979193",-->
-            <!--                              data: [900,230,600,433,543,233,908,809,765,999,4333,888]-->
-            <!--                            }-->
-            <!--                            ]-->
-            <!--                    };-->
-
-            <!--            var myBarChart = new Chart(ctx, {-->
-            <!--                      type: 'line',-->
-            <!--                      data: data,-->
-            <!--                      options: {-->
-            <!--                      legend: {-->
-            <!--                        display: true-->
-            <!--                      },-->
-            <!--                      barValueSpacing: 20,-->
-            <!--                      scales: {-->
-            <!--                        yAxes: [{-->
-            <!--                            ticks: {-->
-            <!--                                min: 0,-->
-            <!--                            }-->
-            <!--                        }],-->
-            <!--                        xAxes: [{-->
-            <!--                                    gridLines: {-->
-            <!--                                        color: "rgba(0, 0, 0, 0)",-->
-            <!--                                    }-->
-            <!--                                }]-->
-            <!--                        }-->
-            <!--                    }-->
-            <!--                  });-->
-            <!--          </script>-->
-            <!--      </div>-->
-            <!--    </div>-->
-            <!--  </div>-->
-            <!--</div>-->
+            
             <div class="page-header">
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
@@ -337,19 +235,11 @@
     series: [{
         type: 'pie',
         name: "<?= $data['saham']['name_saham'] ?>",
-        keys: ['name', 'y', 'selected', 'sliced'],
+        keys: ['name', 'y', 'selected'],
         data: [
           <?php foreach ($data['investasi'] as $rows){
-            echo '{name:"'.$rows['id_investor'].'",y:'.$rows['total_saham'].',selected:"false",sliced:"false"},';
-          }?>
-            // ['Apples', 29.9, false],
-            // ['Pears', 71.5, false],
-            // ['Oranges', 106.4, false],
-            // ['Plums', 129.2, false],
-            // ['Bananas', 144.0, false],
-            // ['Peaches', 176.0, false],
-            // ['Prunes', 135.6, false],
-            // ['Avocados', 148.5, false]
+            echo '{name:"'.$rows['id_investor'].'",y:'.$rows['total_saham'].',selected:"false"},';
+          }?>    
         ],
         showInLegend: true
     }]

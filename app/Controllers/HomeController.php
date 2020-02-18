@@ -10,6 +10,7 @@
 				$data['saham'] 		= $this->db->table('saham')->selectSingle(); 
 				$data['investor']	= $this->db->table('investor')->where('id_investor', Session::get('users'));
 				$saldo				= $this->db->table('investasi')->whereAll('id_investor', $data['investor']['username']);
+				
 				foreach ($saldo as $row) {
                     $array[] = $row['total_saham']; 
                 }   

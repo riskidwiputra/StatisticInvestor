@@ -48,7 +48,7 @@
     
             $passHash = password_hash($rePassword, PASSWORD_DEFAULT);
             if (strlen($password) >= 8) { 
-                if(!preg_match("/^[a-zA-Z0-9]*$/", $password)){
+                if(preg_match("/^[a-zA-Z0-9]*$/", $password)){
                     Flasher::setFlashSweet('Failed','<b> Passwords </b> must be a combination of letters and numbers, and may not use spaces ...!','error'); 
                     return false;
              
@@ -81,16 +81,16 @@
                             ];
                             
                             
-                            $data2 = [
-                                'id_admin'      => "tes",
-                                'id_investor'   => $buatkode,
-                                'activity'      => "CreateAt",
-                                'date'          => date('d F Y, H:i:s')
-                            ];  
+                            // $data2 = [
+                            //     'id_admin'      => "tes",
+                            //     'id_investor'   => $buatkode,
+                            //     'activity'      => "CreateAt",
+                            //     'date'          => date('d F Y, H:i:s')
+                            // ];  
                             
                             
                             $this->db->table('investor')->insert($data);
-                            $this->db->table('activity_logs')->insert($data2);
+                            // $this->db->table('activity_logs')->insert($data2);
                             return $this->db->rowCount();
 
                 
