@@ -23,14 +23,15 @@
                     <a href="<?= url("add-investor") ?>"> <button class="btn btn-inverse-primary"><span class="fa fa-plus-circle fa-spin"></span> Add Data Investor </button></a>
                     </p>
                     
-                    <table id="example" class="table table-striped table-bordered"  style="width:100%">
+                    <table id="example" class="table table-striped "  style="width:100%">
                         <thead>
                         <tr>
-                            <th width="12%" > User </th>
+                        <th width="12%" > User </th>
                             <th width="18%"> Username </th>
                             <th width="20%"> Email </th>
                             <th width="12%"> Gender </th>
-                            <th width="30%"> Address </th>
+                            <th width="25%"> Address </th>
+                            <th width="13%" >Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -44,6 +45,19 @@
                             <td> <?= $row['email'] ?></td>
                             <td> <?= $row['gender'] ?> </td>
                             <td> <?= $row['address']?> </td>
+                            <td style="text-align: center;">
+                            <a href="">
+                            <button type="button" class="btn btn-gradient-info btn-rounded btn-icon">
+                            <i class="mdi mdi-pencil"></i>
+                            </button>
+                            </a>
+                            &nbsp;
+                            <a href="">
+                            <button type="button" class="btn btn-gradient-danger btn-rounded btn-icon">
+                            <i class="mdi mdi-delete"></i>
+                            </button>
+                            </a>
+                            </td>
                         </tr>
                     <?php }  ?>
                         </tbody>
