@@ -1,28 +1,22 @@
-(function($) {
-  'use strict';
-  //Open submenu on hover in compact sidebar mode and horizontal menu mode
-  $(document).on('mouseenter mouseleave', '.sidebar .nav-item', function(ev) {
-    var body = $('body');
-    var sidebarIconOnly = body.hasClass("sidebar-icon-only");
-    var sidebarFixed = body.hasClass("sidebar-fixed");
-    if (!('ontouchstart' in document.documentElement)) {
-      if (sidebarIconOnly) {
-        if (sidebarFixed) {
-          if (ev.type === 'mouseenter') {
-            body.removeClass('sidebar-icon-only');
-          }
-        } else {
-          var $menuItem = $(this);
-          if (ev.type === 'mouseenter') {
-            $menuItem.addClass('hover-open')
-          } else {
-            $menuItem.removeClass('hover-open')
-          }
-        }
-      }
+$('.delete').on('click', function (e) {
+  e.preventDefault();
+
+
+  const href = $(this).attr('href');
+
+
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.value) {
+      document.location.href = href;
     }
   });
-  $('.aside-toggler').click(function(){
-    $('.chat-list-wrapper').toggleClass('slide')
-  });
-})(jQuery);
+
+});

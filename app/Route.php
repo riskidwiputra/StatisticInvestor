@@ -9,8 +9,11 @@
 	Route::get('/', 								'HomeController@Index');
 	Route::get('/login', 							'AuthController@IndexLogin');
 	Route::get('/logout', 							'AuthController@Logout');
+
 	Route::get('/investor', 						'InvestorController@Investor');
 	Route::get('/add-investor', 					'InvestorController@Add_Investor');
+	Route::get('/dalete-investor/{id}', 			'InvestorController@Delete');
+	Route::get('/update-investor/{id}', 			'InvestorController@SelectUpdate');
 
 	// Saham
 	Route::get('/saham', 							'SahamController@Saham');
@@ -19,26 +22,34 @@
 
 	// Investasi 
 	Route::get('/investasi', 						'InvestasiController@Investasi');
-	Route::get('/get-harga/{id}', 					'InvestasiController@Get_Harga');
+	
 	
 
 
 
 
-
+	// lOGIN 
 	Route::post('/login', 							'AuthController@Login');
-	
+
+	// INVESTOR
 	Route::post('/insert-investor', 				'InvestorController@Insert');
+	Route::post('/update-investor/{id}', 			'InvestorController@Update');
+
+	// SAHAM
 	Route::post('/insert-saham', 					'SahamController@Insert');
 	Route::post('/edit-saham/{id}', 				'SahamController@Edit');
 
+	// INVESTASI
 	Route::post('/insert-investasi', 				'InvestasiController@Insert');
+	Route::post('/insert-transfer-investasi', 		'InvestasiController@Insert_Transfer');
 
 
 
 
 	Route::post('/get-saham', 						'InvestasiController@Get_Saham');
-
+	Route::post('/get-harga/{id}', 					'InvestasiController@Get_Harga');
+	Route::post('/get-transfer', 					'InvestasiController@Get_Lembar');
+	Route::post('/get-harga-transfer/{id}', 		'InvestasiController@Get_Transfer');
 
 
 

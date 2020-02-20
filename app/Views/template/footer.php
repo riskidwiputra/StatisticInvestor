@@ -52,6 +52,7 @@
         dataType: 'html',
         success: function(msg) {
             $("#rate").val(msg);  
+            $("#lembar").val(msg);  
         }
     });
 
@@ -61,18 +62,51 @@
             
             $.ajax({
             url: '<?=url("get-harga/");?>'+ result, 
-            type: 'GET',
+            type: 'POST',
             dataType: 'json',
             success: function(msg) {
                 $("#get_balance").val(msg);  
             }
         });
     }
-
-    
+    $('#pengirim').on('click', function (e) {
+      var pengirim = $("#pengirim option:selected").val();
       
+    //  
+
+      $.ajax({
+        url: '<?=url("get-transfer");?>', 
+        data: {
+          data : pengirim
+        },
+        type: 'POST',
+        dataType: 'html',
+        success: function(msg) {
+            $("#lembar_saham2").attr("placeholder", msg);
+        }
+    });
+
+  });
+
+
+  function get_total_transfer(quantity) {
+        var lembar = $("#lembar").val();
+        var result2 = eval(quantity) * lembar;
+
+        $.ajax({
+            url: '<?=url("get-harga-transfer/");?>'+ result2, 
+            type: 'POST',
+            dataType: 'json',
+            success: function(msg) {
+                $("#get_harga_transfer").val(msg);  
+            }
+        });
+  
+      
+    }
 
   </script>
+  
     <!-- End custom js for this page -->
   </body>
 </html>

@@ -44,16 +44,16 @@
                             <td > <?= $row['username'] ?> </td>
                             <td> <?= $row['email'] ?></td>
                             <td> <?= $row['gender'] ?> </td>
-                            <td> <?= $row['address']?> </td>
+                            <td> <?= $row['address']?></td>
                             <td style="text-align: center;">
-                            <a href="">
+                            <a href="<?= url('update-investor/').$row['id_investor']; ?>">
                             <button type="button" class="btn btn-gradient-info btn-rounded btn-icon">
                             <i class="mdi mdi-pencil"></i>
                             </button>
                             </a>
                             &nbsp;
-                            <a href="">
-                            <button type="button" class="btn btn-gradient-danger btn-rounded btn-icon">
+                            <a href="<?= url('dalete-investor/').$row['id_investor']; ?>" class="delete">
+                            <button type="button" class="btn btn-gradient-danger btn-rounded btn-icon ">
                             <i class="mdi mdi-delete"></i>
                             </button>
                             </a>

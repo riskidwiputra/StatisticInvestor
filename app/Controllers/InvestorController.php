@@ -20,7 +20,19 @@
                 $this->view('pages/investor/add_investor');
                 $this->view('template/footer');	
         }else{
-            // redirect('/login');
+            redirect('/login');
+			exit;
+        }
+        }
+        public function SelectUpdate($id)
+        {
+            if(Session::check('admin') == true ){ 
+                $data['content'] = $this->model('Investor_Model')->selectUpdate($id);
+                $this->view('template/header');
+                $this->view('pages/investor/update_investor',$data);
+                $this->view('template/footer');	
+        }else{
+            redirect('/login');
 			exit;
         }
         }
@@ -36,5 +48,30 @@
                 exit;
             }   
             
+        }
+        public function Delete($id)
+		{
+			if ($this->model('Investor_Model')->delete($id) > 0 ) {
+				Flasher::setFlashSweet('successfully','Data successfully deleted','success'); 
+				redirect('/investor');
+					exit;
+			}else{
+				// Flasher::setFlashSweet('Failed','Data failed to delete','warning'); 
+				redirect('/investor');
+				exit;
+            }
+        }
+
+        public function Update($id)
+        {
+            if ($this->model('Investor_Model')->update($id) > 0 ) {
+				Flasher::setFlashSweet('successfully','Data updated successfully','success'); 
+				redirect('/investor');
+				exit;
+			}else{
+				// Flasher::setFlashSweet('Failed','Data Failed To Update','warning'); 
+				redirect('/investor');
+				exit;
+			}
         }
     }
