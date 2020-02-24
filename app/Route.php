@@ -10,10 +10,13 @@
 	Route::get('/login', 							'AuthController@IndexLogin');
 	Route::get('/logout', 							'AuthController@Logout');
 
+	//
 	Route::get('/investor', 						'InvestorController@Investor');
 	Route::get('/add-investor', 					'InvestorController@Add_Investor');
 	Route::get('/dalete-investor/{id}', 			'InvestorController@Delete');
 	Route::get('/update-investor/{id}', 			'InvestorController@SelectUpdate');
+	Route::get('/change-investor/{id}', 			'InvestorController@ChangePassword');
+
 
 	// Saham
 	Route::get('/saham', 							'SahamController@Saham');
@@ -34,6 +37,7 @@
 	// INVESTOR
 	Route::post('/insert-investor', 				'InvestorController@Insert');
 	Route::post('/update-investor/{id}', 			'InvestorController@Update');
+	Route::post('/change-password/{id}', 			'InvestorController@Change_Password');
 
 	// SAHAM
 	Route::post('/insert-saham', 					'SahamController@Insert');

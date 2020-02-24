@@ -35,6 +35,17 @@
     $('#example').DataTable();
     } );
     </script>
+    <script type="text/javascript">
+	$(document).ready(function(){		
+		$('#check').click(function(){
+			if($(this).is(':checked')){
+				$('#password_sekarang').attr('type','text');
+			}else{
+				$('#password_sekarang').attr('type','password');
+			}
+		});
+	});
+</script>
     <script>
     function number(evt) {
             var charCode = (evt.which) ? evt.which : event.keyCode

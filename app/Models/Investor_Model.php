@@ -375,4 +375,48 @@
 			return $this->db->table('investor')->update($data ,$where);
 		
         }
+        public function change_password($id)
+        {
+            $password_lama  = $this->ctr->post('current_password');
+            $password       = $this->ctr->post('password');
+            $rePassword     = $this->ctr->post('confirm_password'); 
+            $investor 		= $this->db->table('investor')->where("id_investor", $id);
+
+        
+            if ( password_verify($password_lama, $investor['password']) == true ) {
+                if ( md5($password) == md5($rePassword) ) {
+                    if (strlen($password) >= 8) { 
+                        if ( password_verify($password, $investor['password']) == true ) {
+                            Flasher::setFlash('Please use a password that has <b>not been</b> used', 'danger');
+                            return false;
+                        } else {
+                            if(preg_match("/^[a-zA-Z0-9]*$/", $password)){
+                                Flasher::setFlashSweet('Failed','<b> Passwords must be a combination of letters, numbers and symbols, and cannot use spaces','error'); 
+                                return false;
+                            }else{
+                                $passHash = password_hash($password, PASSWORD_DEFAULT);
+                                $data= [
+                                    'password' => $passHash
+                                ];
+                                $where=[
+                                    'id_investor' => $id
+                                ];
+                                return $this->db->table('investor')->update($data ,$where);
+                            }
+                        }
+                    } else {
+                        Flasher::setFlashSweet('Failed','<b> Password </b> must be at least 8 digits long','error'); 
+                        return false;
+                    } 
+
+                } else {
+                    Flasher::setFlashSweet('Failed','<b>Password Confirmation</b> must be the same', 'error');
+                    return false;
+                }
+            } else {
+                Flasher::setFlashSweet('Failed','Your current password is incorrect', 'error');
+                return false;
+            }
+        }
+        
     }

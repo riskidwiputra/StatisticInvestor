@@ -36,6 +36,18 @@
 			exit;
         }
         }
+        public function ChangePassword($id)
+        {
+            $data['id'] = $id;
+            if(Session::check('admin') == true ){ 
+                $this->view('template/header');
+                $this->view('pages/investor/change_password',$data);
+                $this->view('template/footer');	
+        }else{
+            redirect('/login');
+			exit;
+        }
+        }
         
         public function Insert(){
             if ( $this->model('Investor_Model')->insert($_POST) > 0) {
@@ -74,4 +86,18 @@
 				exit;
 			}
         }
+        public function Change_Password($id)
+        {
+            
+            if ($this->model('Investor_Model')->change_password($id) > 0 ) {
+                Flasher::setFlashSweet('successfully','Data updated successfully','success'); 
+                redirect('/nvestor');
+                exit;
+            }else{
+                // Flasher::setFlashSweet('Failed','Data Failed To Update','warning'); 
+                redirect('/change-investor/'.$id);
+                exit;
+            }
+        }
+        
     }

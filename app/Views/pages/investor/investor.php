@@ -57,6 +57,13 @@
                             <i class="mdi mdi-delete"></i>
                             </button>
                             </a>
+                            &nbsp;
+                            <a href="<?= url('change-investor/').$row['id_investor']; ?>" data-toggle="tooltip" data-placement="button" title="Change Password!">
+                            <button type="button" class="btn btn-gradient-danger btn-rounded btn-icon ">
+                            <i class="mdi mdi-key-variant"></i>
+                            </button>
+                            </a>
+                        
                             </td>
                         </tr>
                     <?php }  ?>
