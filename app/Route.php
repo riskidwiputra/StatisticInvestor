@@ -47,7 +47,10 @@
 	Route::post('/insert-investasi', 				'InvestasiController@Insert');
 	Route::post('/insert-transfer-investasi', 		'InvestasiController@Insert_Transfer');
 
-
+	//NEWS
+	Route::get('/news', 							'NewsController@Index');
+	Route::get('/addnewsdaily', 					'NewsController@Add_Daily');
+	Route::get('/addnewsmonthly', 					'NewsController@Add_Monthly');
 
 
 	Route::post('/get-saham', 						'InvestasiController@Get_Saham');

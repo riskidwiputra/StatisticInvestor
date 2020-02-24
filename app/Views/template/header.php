@@ -168,6 +168,12 @@
                 <i class="mdi mdi-contacts menu-icon"></i>
             </a>
             </li> 
+            <li class="nav-item">
+            <a class="nav-link" href="<?=url('news');?>">
+                <span class="menu-title">News</span>
+                <i class="mdi mdi-newspaper menu-icon"></i>
+            </a>
+            </li>
             <?php if(Session::get("admin")){ ?>
             <li class="nav-item">
             <a class="nav-link" href="<?=url('investor');?>">
