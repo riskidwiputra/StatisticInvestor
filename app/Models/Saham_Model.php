@@ -24,6 +24,17 @@
                 'tahun'         => $year
             ];
             $this->db->table('saham')->insert($data);
+            $id_admin 	= Session::get('admin');
+            $dataActivity = [
+                "id_admin"	 => $id_admin,
+                "name_table" => "Saham",
+                "id"		 => $hash,
+                "activity" 	 => "INSERTED",
+                "keterangan" => "MENAMBAH DATA SAHAM",
+                "date"		 => date("d-m-Y H:i:s")
+            ];
+        
+            $activity = $this->db->table('history_access_logs')->insert($dataActivity);
             return $this->db->rowCount();
         }
         public function edit($id)
@@ -37,6 +48,15 @@
             ];
             $where = [
                 "id_saham"  => $id
+            ];
+            $id_admin 	= Session::get('admin');
+            $dataActivity = [
+                "id_admin"	 => $id_admin,
+                "name_table" => "Saham",
+                "id"		 => $id,
+                "activity" 	 => "UPDATED",
+                "keterangan" => "MENGUBAH DATA SAHAM",
+                "date"		 => date("d-m-Y H:i:s")
             ];
             return $this->db->table('saham')->update($data,$where);
         }

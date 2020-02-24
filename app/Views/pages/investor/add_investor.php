@@ -54,6 +54,34 @@
                         <label for="exampleTextarea1">Alamat</label>
                         <textarea class="form-control" name="alamat" id="exampleTextarea1" rows="4" required=""></textarea>
                     </div>
+                    <div class="form-group">
+                        <label>File upload</label>
+                        <input type="file" name="img_ktp" class="file-upload-default" required="">
+                        <div class="input-group col-xs-12">
+                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload KTP">
+                        <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload KTP</button>
+                        </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Nik</label>
+                        <input type="number" class="form-control" name="id_ktp" placeholder="nik" required="">
+                    </div>
+                    <div class="form-group">
+                        <label>File upload</label>
+                        <input type="file" name="img_npwp" class="file-upload-default" required="">
+                        <div class="input-group col-xs-12">
+                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload NPWP">
+                        <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload NPWP</button>
+                        </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">ID NPWP</label>
+                        <input type="number" class="form-control" name="id_npwp" placeholder="ID NPWP" required="">
+                    </div>
                     <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
                     </form>
                 </div>

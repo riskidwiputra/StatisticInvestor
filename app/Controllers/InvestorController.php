@@ -56,7 +56,7 @@
 				redirect('/investor');
 					exit;
 			}else{
-				// Flasher::setFlashSweet('Failed','Data failed to delete','warning'); 
+				Flasher::setFlashSweet('Failed','Data failed to delete','warning'); 
 				redirect('/investor');
 				exit;
             }

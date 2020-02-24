@@ -29,6 +29,21 @@ class Investasi_Model extends Model
 			'lot'		   => $lot
 		];
 		$this->db->table('investasi')->insert($data);
+		$id 	= Session::get('admin');
+		$dataActivity = [
+			"id_admin"	 => $id,
+			"name_table" => "investasi",
+			"id"		 => $hash,
+			"activity" 	 => "INSERTED",
+			"keterangan" => "MENAMBAH DATA SAHAM/MEMBELI SAHAM",
+			"date"		 => date("d-m-Y H:i:s")
+		];
+		$activity = $this->db->table('history_access_logs')->insert($dataActivity);
+		if ($activity == false) {
+			Flasher::setFlashSweet('Failed','Data activity_logs Gagal Di Input','error'); 
+			return false;
+			
+		}
 		return $this->db->rowCount();
 	}
 	public function insert_transfer()
@@ -93,7 +108,7 @@ class Investasi_Model extends Model
 			"name_table" => "investasi",
 			"id"		 => $hash,
 			"activity" 	 => "Updated",
-			"keterangan" => "Mentransfer Saham Dan Menambah Data baru investasi",
+			"keterangan" => "MENTRANSFER SAHAM DAN MENAMBAH DATA BARU INVESTASI",
 			"date"		 => date("d-m-Y H:i:s")
 		];
 	
@@ -175,7 +190,7 @@ class Investasi_Model extends Model
 			"name_table" => "investasi",
 			"id"		 => $hash,
 			"activity" 	 => "Updated",
-			"keterangan" => "Mentransfer Saham Dan Mengubah Data investasi",
+			"keterangan" => "MENTRANFER SAHAM DAN MENGUBAH DATA INVESTASI",
 			"date"		 => date("d-m-Y H:i:s")
 		];
 		$activity = $this->db->table('history_access_logs')->insert($dataActivity);
