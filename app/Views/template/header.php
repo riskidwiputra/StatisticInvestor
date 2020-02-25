@@ -162,12 +162,7 @@
                 <i class="mdi mdi-home menu-icon"></i>
             </a>
             </li>
-            <li class="nav-item">
-            <a class="nav-link" href="<?=url();?>">
-                <span class="menu-title">About</span>
-                <i class="mdi mdi-contacts menu-icon"></i>
-            </a>
-            </li> 
+           
             <li class="nav-item">
             <a class="nav-link" href="<?=url('news');?>">
                 <span class="menu-title">News</span>

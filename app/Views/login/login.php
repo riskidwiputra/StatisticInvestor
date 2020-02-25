@@ -104,14 +104,7 @@
                   <!-- <div class="text-center">
                     <a class="small" href="forgot-password.html">Forgot Password?</a>
                   </div> -->
-                  <div class="my-2 d-flex justify-content-between align-items-center">
-                  
-                    <div class="form-check">
-                      <label class="form-check-label text-muted">
-                        <input type="checkbox" class="form-check-input"> Keep me signed in </label>
-                    </div>
-                    <a href="#" class="auth-link text-black">Forgot password?</a>
-                  </div>
+                
                 </div>
               </div>
             </div>
