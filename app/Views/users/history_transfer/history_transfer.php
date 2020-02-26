@@ -37,12 +37,11 @@
                         <tbody>
                         <?php foreach ($data['content'] as $row) { ?>
                         <tr>
-                            <td> <?= $row['id_admin'] ?>    </td>
-                            <td> <?= $row['name_table'] ?>  </td>
-                            <td> <?= $row['id'] ?>          </td>
-                            <td> <?= $row['activity'] ?>    </td>
-                            <td> <?= $row['date']?>         </td>
-                        
+                            <td> <?= $row['id_pengirim'] ?>     </td>
+                            <td> <?= $row['id_penerima'] ?>     </td>
+                            <td> <?= $row['activity'] ?>        </td>
+                            <td> <?= $row['jumlah_saham'] ?>    </td>
+                            <td> <?= $row['date']?>             </td>
                         </tr>
                         <?php }  ?>
                         </tbody>

@@ -48,7 +48,9 @@
 		{
 			if( Session::check('users') == true ){ 
 				$id_users = Session::get('users');
-				$data['content'] = $this->db->table('history_access_logs')->whereAll('id_admin', $id_users);
+				$data['pengirim'] = $this->db->table('investor')->where('id_investor', $id_users);
+				$data['content'] = $this->db->table('history_transfer')->whereAll('id_pengirim', $data['pengirim']['username']);
+				
 				$this->view('template/header');
                 $this->view('users/history_transfer/history_transfer',$data);
                 $this->view('template/footer');	

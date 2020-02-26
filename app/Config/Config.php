@@ -11,10 +11,15 @@ class Config
 		ini_set( 'display_errors', 0 );
 
 
+		// define('DB_HOST', 'localhost');
+		// define('DB_USER', 'u8127881_investor');
+		// define('DB_PASS', '1nvestor12345');
+		// define('DB_NAME', 'u8127881_investor'); 
+
 		define('DB_HOST', 'localhost');
-		define('DB_USER', 'u8127881_investor');
-		define('DB_PASS', '1nvestor12345');
-		define('DB_NAME', 'u8127881_investor'); 
+		define('DB_USER', 'u750758461_investor');
+		define('DB_PASS', 'Y0uDontS33M3');
+		define('DB_NAME', 'u750758461_investor'); 
 
 		// define('DB_HOST', 'localhost');
 		// define('DB_USER', 'root');
