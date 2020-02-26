@@ -172,7 +172,6 @@ class Investasi_Model extends Model
 		}
 		
 		$data = [
-			'id_transfer'	=> rand(999,999999),
 			'id_pengirim'	=> $username_pengirim,
 			'id_penerima'	=> $username_penerima,
 			'activity'		=> "Mentransfer Saham",

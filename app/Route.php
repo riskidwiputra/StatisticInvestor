@@ -51,6 +51,10 @@
 	Route::get('/news', 							'NewsController@Index');
 	Route::get('/addnewsdaily', 					'NewsController@Add_Daily');
 	Route::get('/addnewsmonthly', 					'NewsController@Add_Monthly');
+	
+	// activity Log
+	Route::get('/activity-log', 					'AuthController@activity_log');
+	Route::get('/history_transfer', 				'AuthController@history_transfer');
 
 
 	Route::post('/get-saham', 						'InvestasiController@Get_Saham');

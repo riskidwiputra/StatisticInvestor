@@ -23,7 +23,7 @@
 			
 			
 				if (date('d-m-Y H:i:s') < Session::get('_login_again')) {
-			
+					Session::unset();
 				Flasher::setFlash('Please login in <span id="timer" style="font-weight:bold;"></span>', 'danger');
 				return false;
 				} else {

@@ -16,9 +16,14 @@
     <!-- endinject -->
     <!-- Layout styles -->
     <link rel="stylesheet" href="<?= asset('assets/css/style.css'); ?>">
-    <!-- <link href="<?= BASEURL ?>/public/assets/vendors/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
-      <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+   
+
+    <link href="<?= BASEURL ?>/public/assets/vendors/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <!-- <link href=" https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet"> -->
+  
     <script src="<?= BASEURL ?>/public/assets/vendors/sweetalert/js/sweetalert2.all.min.js"></script>
+    
+  <script src="<?= BASEURL ?>/public/assets/vendor/jquery/jquery.min.js"></script> 
     <!-- End layout styles -->
     <link rel="shortcut icon" href="<?= asset('assets/images/favicon.png'); ?>" />
 </head>
@@ -68,8 +73,12 @@
                   <i class="mdi mdi-account mr-2 text-success"></i> Profil </a>
               <?php } ?>
               <?php if(Session::get("admin")){ ?>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="<?= url('activity-log') ?>">
                   <i class="mdi mdi-cached mr-2 text-success"></i> Activity Log </a>
+              <?php } ?>
+              <?php if(Session::get("users")){ ?>
+                <a class="dropdown-item" href="<?= url('history_transfer') ?>">
+                  <i class="mdi mdi-cached mr-2 text-success"></i> History Transfers </a>
               <?php } ?>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="<?= url('logout') ?>">
