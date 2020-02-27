@@ -162,7 +162,7 @@
                                 "name_table" => "investor",
                                 "id"		 => $buatkode,
                                 "activity" 	 => "INSERTED",
-                                "keterangan" => "MENAMBAHKAN AKUN INVESTOR BARU",
+                                "keterangan" => "MENAMBAHKAN AKUN ".strtoupper($username)." / INVESTOR BARU",
                                 "date"		 => date("d-m-Y H:i:s")
                             ];
                         
@@ -173,9 +173,6 @@
                             }
                             // // $this->db->table('activity_logs')->insert($data2);
                             return $this->db->rowCount();
-
-                
-                        
                         } else {
                             Flasher::setFlashSweet('Failed','<b> Confirm Password </b> must be the same','error'); 
                             return false;  
@@ -192,6 +189,25 @@
             'id_investor' => $id
         ];
         $sql = $this->db->table('investor')->selectWhere($data);
+        $idadmin 	= Session::get('admin');
+        $dataActivity = [
+            "id_admin"	 => $idadmin,
+            "name_table" => "investor",
+            "id"		 => $id,
+            "activity" 	 => "Deleted",
+            "keterangan" => "MENGHAPUS AKUN ".strtoupper($sql['username'])." / INVESTOR BARU",
+            "date"		 => date("d-m-Y H:i:s")
+        ];
+
+        $activity = $this->db->table('history_access_logs')->insert($dataActivity);
+        if ($activity == false) {
+            Flasher::setFlashSweet('Failed','Data activity_logs Gagal Di Input','error'); 
+            return false;
+        }
+        $data2 = [
+            'id_investor'  => $sql['username']
+        ];
+        $this->db->table("investasi")->delete($data2);
         unlink( paths('path_portal_Investor').$sql['image'] );
         return $this->db->table('investor')->delete($data);
         }
@@ -357,13 +373,14 @@
                 $where = [
                 'id_investor' => $id
                 ];	
+                $sqlinvestor = $this->db->table('investor')->selectWhere($where);
                 $id_admin 	= Session::get('admin');
                     $dataActivity = [
                         "id_admin"	 => $id_admin,
                         "name_table" => "investor",
                         "id"		 => $id,
                         "activity" 	 => "UPDATED",
-                        "keterangan" => "MENGUBAH AKUN INVESTOR ",
+                        "keterangan" => "MENGUBAH AKUN INVESTOR ".strtoupper($sql['username']),
                         "date"		 => date("d-m-Y H:i:s")
                     ];
                 
@@ -372,6 +389,13 @@
                     Flasher::setFlashSweet('Failed','Data activity_logs Gagal Di Input','error'); 
                     return false;
                 }
+                $datainvestasi = [
+                    'id_investor' => $username 
+                ];
+                $whereinvestasi = [
+                    'id_investor'   => $sqlinvestor['username']
+                ];
+                $this->db->table('investasi')->update($datainvestasi, $whereinvestasi);
 			return $this->db->table('investor')->update($data ,$where);
 		
         }

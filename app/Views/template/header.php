@@ -29,7 +29,7 @@
 </head>
 <body>
     <div class="container-scroller">
-    <div class="container-fluid page-body-wrapper">
+   
 
 
         <!-- partial:partials/_sidebar.html -->
@@ -76,7 +76,7 @@
                 <a class="dropdown-item" href="<?= url('activity-log') ?>">
                   <i class="mdi mdi-cached mr-2 text-success"></i> Activity Log </a>
               <?php } ?>
-              <?php if(Session::get("users")){ ?>
+              <?php if(Session::get("users") || Session::get("admin") ){ ?>
                 <a class="dropdown-item" href="<?= url('history_transfer') ?>">
                   <i class="mdi mdi-cached mr-2 text-success"></i> History Transfers </a>
               <?php } ?>
@@ -141,7 +141,7 @@
           </button>
         </div>
       </nav>
-      
+      <div class="container-fluid page-body-wrapper">
       
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">

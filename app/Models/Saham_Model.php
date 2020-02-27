@@ -30,7 +30,7 @@
                 "name_table" => "Saham",
                 "id"		 => $hash,
                 "activity" 	 => "INSERTED",
-                "keterangan" => "MENAMBAH DATA SAHAM",
+                "keterangan" => "MEMBUAT DATA SAHAM",
                 "date"		 => date("d-m-Y H:i:s")
             ];
         

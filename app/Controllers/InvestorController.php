@@ -5,7 +5,6 @@
         public function Investor(){
             if(Session::check('admin') == true ){ 
                 $data['content'] = $this->model('Investor_Model')->select();
-            
                 $this->view('template/header');
                 $this->view('pages/investor/investor',$data);
                 $this->view('template/footer');	

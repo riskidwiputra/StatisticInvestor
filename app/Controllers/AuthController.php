@@ -53,7 +53,14 @@
 				
 				$this->view('template/header');
                 $this->view('users/history_transfer/history_transfer',$data);
-                $this->view('template/footer');	
+				$this->view('template/footer');	
+			}else if( Session::check('admin') == true ){ 
+				// $id_admin = Session::get('admin');
+				// $data['pengirim'] = $this->db->table('investor')->where('id_investor', $id_users);
+				$data['content'] = $this->db->table('history_transfer')->selectAll();
+				$this->view('template/header');
+                $this->view('users/history_transfer/history_transfer',$data);
+				$this->view('template/footer');
 			}else{
 				$this->view('login/login');
 			}
