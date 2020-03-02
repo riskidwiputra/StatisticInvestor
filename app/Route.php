@@ -9,6 +9,7 @@
 	Route::get('/', 								'HomeController@Index');
 	Route::get('/login', 							'AuthController@IndexLogin');
 	Route::get('/logout', 							'AuthController@Logout');
+	Route::get('/error', 							'AuthController@Error');
 
 	//
 	Route::get('/investor', 						'InvestorController@Investor');
@@ -25,11 +26,6 @@
 
 	// Investasi 
 	Route::get('/investasi', 						'InvestasiController@Investasi');
-	
-	
-
-
-
 
 	// lOGIN 
 	Route::post('/login', 							'AuthController@Login');
@@ -49,9 +45,25 @@
 
 	//NEWS
 	Route::get('/news', 							'NewsController@Index');
+	Route::get('/news/{id}', 						'NewsController@Single_News');
 	Route::get('/addnewsdaily', 					'NewsController@Add_Daily');
 	Route::get('/addnewsmonthly', 					'NewsController@Add_Monthly');
-	
+	Route::get('/upload/{id}', 						'NewsController@Upload');
+	Route::get('/dalete-news/{id}', 				'NewsController@Delete');
+	Route::get('/update-news/{id}', 				'NewsController@SelectUpdate');
+	Route::get('/news-daily/{id}', 					'NewsController@Pagination_Daily');
+	Route::get('/news-monthly/{id}', 				'NewsController@Pagination_Monthly');
+
+	Route::post('/insert-news', 					'NewsController@Insert');
+	Route::post('/update-news/{id}', 				'NewsController@Update');
+
+	// Report
+	Route::get('/report', 							'ReportController@Report');
+	Route::get('/add-report', 						'ReportController@Add_Report');
+	Route::get('/dalete-report/{id}', 				'ReportController@Delete');
+	Route::get('/download-report/{id}', 			'ReportController@Download');
+
+	Route::post('/insert-report', 					'ReportController@Insert');
 	// activity Log
 	Route::get('/activity-log', 					'AuthController@activity_log');
 	Route::get('/history_transfer', 				'AuthController@history_transfer');

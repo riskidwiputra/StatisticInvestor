@@ -12,15 +12,13 @@ class Investasi_Model extends Model
 	
 	public function insert()
 	{
-	
 		$hash 			= rand(999,999999);
 		$username       = $this->ctr->post('username');
 		$lembar_saham	= $this->ctr->post('lembar_saham');
 		$total_harga    = $this->ctr->post('total_harga');
 		$total_harga2 	= str_replace('.', '', trim($total_harga));
 		$lot 			= $lembar_saham / 100; 
-		
-		
+	
 		$data = [
 			'id_investasi' => $hash,
 			'id_investor'  => $username,
@@ -36,7 +34,7 @@ class Investasi_Model extends Model
 			"id"		 => $hash,
 			"activity" 	 => "INSERTED",
 			"keterangan" => "INVESTOR ".strtoupper($username). " MEMBELI ".number_format($lembar_saham,0,',','.')." LEMBAR SAHAM ",
-			"date"		 => date("d-m-Y H:i:s")
+			"date"		 => date("Y-m-d H:i:s")
 		];
 		$activity = $this->db->table('history_access_logs')->insert($dataActivity);
 		if ($activity == false) {
@@ -92,11 +90,11 @@ class Investasi_Model extends Model
 		}
 		$data2 = [
 			'id_history_transfer'	=> rand(999,999999),
-			'id_pengirim'	=> $username_pengirim,
-			'id_penerima'	=> $username_penerima,
-			'activity'		=> "Mentransfer Saham",
-			'jumlah_saham'	=> $lembar_saham,
-			'date'			=> date("d-m-Y H:i:s")
+			'id_pengirim'			=> $username_pengirim,
+			'id_penerima'			=> $username_penerima,
+			'activity'				=> "Mentransfer Saham",
+			'jumlah_saham'			=> $lembar_saham,
+			'date'					=> date("Y-m-d H:i:s")
 		];
 		$transfer_h = $this->db->table('history_transfer')->insert($data2);
 		if ($transfer_h == false) {
@@ -110,7 +108,7 @@ class Investasi_Model extends Model
 			"id"		 => $hash,
 			"activity" 	 => "Updated",
 			"keterangan" => "MENTRANSFER SAHAM DARI ".strtoupper($username_pengirim)." DAN  MENAMBAH DATA BARU INVESTASI",
-			"date"		 => date("d-m-Y H:i:s")
+			"date"		 => date("Y-m-d H:i:s")
 		];
 	
 		$activity = $this->db->table('history_access_logs')->insert($dataActivity);
@@ -177,7 +175,7 @@ class Investasi_Model extends Model
 			'id_penerima'	=> $username_penerima,
 			'activity'		=> "Mentransfer Saham",
 			'jumlah_saham'	=> $lembar_saham,
-			'date'			=> date("d-m-Y H:i:s")
+			'date'			=> date("Y-m-d H:i:s")
 		];
 		$transfer_h = $this->db->table('history_transfer')->insert($data);
 		if ($transfer_h == false) {
@@ -191,7 +189,7 @@ class Investasi_Model extends Model
 			"id"		 => $hash,
 			"activity" 	 => "Updated",
 			"keterangan" => "MENTRANFER SAHAM DARI INVESTOR ".strtoupper($username_pengirim)." KE INVESTOR ".strtoupper($username_penerima),
-			"date"		 => date("d-m-Y H:i:s")
+			"date"		 => date("Y-m-d H:i:s")
 		];
 		$activity = $this->db->table('history_access_logs')->insert($dataActivity);
 		if ($activity == false) {

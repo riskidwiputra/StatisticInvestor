@@ -19,10 +19,10 @@
                 $this->view('template/header');
                 $this->view('pages/investasi/investasi',$data);
                 $this->view('template/footer');	
-        }else{
-            redirect('/login');
-			exit;
-        }
+            }else{
+                redirect('/login');
+                exit;
+            }
         }
         public function Get_Saham(){
             $saham = $this->db->table('saham')->selectSingle(); 
@@ -43,7 +43,6 @@
             }else{
                 echo $saham['total_saham'];
             }
-            
         }
         public function Get_Harga($id){
             $data = number_format($id,0,',','.');
@@ -51,20 +50,8 @@
                 echo json_encode(0);
             }else{
                 echo json_encode($data);
-            }
-        
-            
+            }    
         }
-        // public function Add_Investor(){
-        //     if(Session::check('admin') == true ){ 
-        //         $this->view('template/header');
-        //         $this->view('pages/investasi/add_investor');
-        //         $this->view('template/footer');	
-        // }else{
-        //     // redirect('/login');
-		// 	exit;
-        // }
-        // }
         
         public function Insert(){
             $saham = $this->db->table('saham')->selectSingle();
@@ -92,7 +79,6 @@
                 redirect('/investasi');
                 exit;
             }
-    
         }
         
         public function Insert_Transfer(){
@@ -139,8 +125,5 @@
                 redirect('/investasi');
                 exit;
             }
-
-
-    
         }
     }

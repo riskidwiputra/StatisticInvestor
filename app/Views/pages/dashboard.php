@@ -181,7 +181,7 @@
                   <div class="card-body"> 
                         <div class="row">
                             <div class="mx-auto">
-                                <button class="btn btn-outline-primary"><i class="mdi mdi-cloud-download"></i> Download Report</button> 
+                                <a href="<?= url('download-report/').$data['report']['id_report'] ?>"><button class="btn btn-outline-primary"><i class="mdi mdi-cloud-download"></i> Download Report</button> </a>
                             </div>
                         </div> 
                   </div>

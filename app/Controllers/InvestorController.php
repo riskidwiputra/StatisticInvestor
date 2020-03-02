@@ -8,20 +8,20 @@
                 $this->view('template/header');
                 $this->view('pages/investor/investor',$data);
                 $this->view('template/footer');	
-        }else{
-            redirect('/login');
-			exit;
-        }
+            }else{
+                redirect('/login');
+                exit;
+            }
         }
         public function Add_Investor(){
             if(Session::check('admin') == true ){ 
                 $this->view('template/header');
                 $this->view('pages/investor/add_investor');
                 $this->view('template/footer');	
-        }else{
-            redirect('/login');
-			exit;
-        }
+            }else{
+                redirect('/login');
+                exit;
+            }
         }
         public function SelectUpdate($id)
         {
@@ -30,10 +30,10 @@
                 $this->view('template/header');
                 $this->view('pages/investor/update_investor',$data);
                 $this->view('template/footer');	
-        }else{
-            redirect('/login');
-			exit;
-        }
+            }else{
+                redirect('/login');
+                exit;
+            }
         }
         public function ChangePassword($id)
         {
@@ -42,10 +42,10 @@
                 $this->view('template/header');
                 $this->view('pages/investor/change_password',$data);
                 $this->view('template/footer');	
-        }else{
-            redirect('/login');
-			exit;
-        }
+            }else{
+                redirect('/login');
+                exit;
+            }
         }
         
         public function Insert(){
@@ -58,7 +58,6 @@
                 redirect('/investor');
                 exit;
             }   
-            
         }
         public function Delete($id)
 		{

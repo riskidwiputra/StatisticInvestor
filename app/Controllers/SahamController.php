@@ -10,20 +10,20 @@
                 $this->view('template/header');
                 $this->view('pages/saham/saham', $data);
                 $this->view('template/footer');	
-        }else{
-            redirect('/login');
-			exit;
-        }
+            }else{
+                redirect('/login');
+                exit;
+            }
         }
         public function Add_Saham(){
             if(Session::check('admin') == true ){ 
                 $this->view('template/header');
                 $this->view('pages/saham/add_saham');
                 $this->view('template/footer');	
-        }else{
-            redirect('/login');
-			exit;
-        }
+            }else{
+                redirect('/login');
+                exit;
+            }
         }
         public function Edit_Saham($id){
             $data['content'] = $this->db->table('saham')->where('id_saham', $id); 
@@ -31,10 +31,10 @@
                 $this->view('template/header');
                 $this->view('pages/saham/edit_saham',$data);
                 $this->view('template/footer');	
-        }else{
-            redirect('/login');
-			exit;
-        }
+            }else{
+                redirect('/login');
+                exit;
+            }
         }
         
         public function Insert(){

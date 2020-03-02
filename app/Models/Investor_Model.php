@@ -27,7 +27,7 @@
             $jenis_kelamin  = $this->ctr->post('gender'); 
             $alamat         = $this->ctr->post('alamat'); 
             $id_ktp         = $this->ctr->post('id_ktp'); 
-            $id_npwp         = $this->ctr->post('id_npwp'); 
+            $id_npwp        = $this->ctr->post('id_npwp'); 
 
             $gambar         = $_FILES['img']['name'];
             $source         = $_FILES['img']['tmp_name'];
@@ -132,7 +132,7 @@
                             }
                     
                             $data = [
-                                'id_investor'  => $buatkode,
+                                'id_investor'   => $buatkode,
                                 'username'      => $username,
                                 'password'      => $passHash,
                                 'email'         => $email,
@@ -146,15 +146,6 @@
                             ];
                         
                             
-                            
-                            // // $data2 = [
-                            // //     'id_admin'      => "tes",
-                            // //     'id_investor'   => $buatkode,
-                            // //     'activity'      => "CreateAt",
-                            // //     'date'          => date('d F Y, H:i:s')
-                            // // ];  
-                            
-                            
                             $this->db->table('investor')->insert($data);
                             $id 	= Session::get('admin');
                             $dataActivity = [
@@ -163,7 +154,7 @@
                                 "id"		 => $buatkode,
                                 "activity" 	 => "INSERTED",
                                 "keterangan" => "MENAMBAHKAN AKUN ".strtoupper($username)." / INVESTOR BARU",
-                                "date"		 => date("d-m-Y H:i:s")
+                                "date"		 => date("Y-m-d H:i:s")
                             ];
                         
                             $activity = $this->db->table('history_access_logs')->insert($dataActivity);
@@ -196,7 +187,7 @@
             "id"		 => $id,
             "activity" 	 => "Deleted",
             "keterangan" => "MENGHAPUS AKUN ".strtoupper($sql['username'])." / INVESTOR BARU",
-            "date"		 => date("d-m-Y H:i:s")
+            "date"		 => date("Y-m-d H:i:s")
         ];
 
         $activity = $this->db->table('history_access_logs')->insert($dataActivity);
@@ -381,7 +372,7 @@
                         "id"		 => $id,
                         "activity" 	 => "UPDATED",
                         "keterangan" => "MENGUBAH AKUN INVESTOR ".strtoupper($sql['username']),
-                        "date"		 => date("d-m-Y H:i:s")
+                        "date"		 => date("Y-m-d H:i:s")
                     ];
                 
                 $activity = $this->db->table('history_access_logs')->insert($dataActivity);

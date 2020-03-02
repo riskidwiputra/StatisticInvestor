@@ -133,7 +133,7 @@
 		{
 			$dataLog = [
 				'id_investor' => $access,
-				'time' => date('d-m-Y H:i:s'),
+				'time' => date('Y-m-d H:i:s'),
 				'device' => Detect::deviceType(),
 				'ip' => Detect::ip(),
 				'os' => Detect::os(),

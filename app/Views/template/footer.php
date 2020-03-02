@@ -29,6 +29,8 @@
     <script src="<?= asset('assets/js/todolist.js') ?>"></script>
     <script type="text/javascript" charset="utf8" src="<?= BASEURL ?>/public/assets/vendors/datatables/jquery.dataTables.min.js"></script>
   <script type="text/javascript" charset="utf8" src="<?= BASEURL ?>/public/assets/vendors/datatables/dataTables.bootstrap4.min.js"></script>
+  <script type="text/javascript" src="<?= BASEURL ?>/public/assets/vendors/ckeditor/ckeditor.js"></script>
+  
     <script>
     $(document).ready(function() {
     $('#example').DataTable();

@@ -201,6 +201,12 @@
                 <i class="mdi mdi-currency-btc menu-icon"></i>
             </a>
             </li> 
+            <li class="nav-item">
+            <a class="nav-link" href="<?=url('report');?>">
+                <span class="menu-title">Report</span>
+                <i class="mdi mdi-file-export menu-icon"></i>
+            </a>
+            </li> 
             <li class="nav-item d-xl-none d-lg-none" style="button:0px;">
             <a class="nav-link" href="<?= url('logout') ?>">
                 <span class="menu-title text-danger">Signout</span>

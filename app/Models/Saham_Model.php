@@ -31,7 +31,7 @@
                 "id"		 => $hash,
                 "activity" 	 => "INSERTED",
                 "keterangan" => "MEMBUAT DATA SAHAM",
-                "date"		 => date("d-m-Y H:i:s")
+                "date"		 => date("Y-m-d H:i:s")
             ];
         
             $activity = $this->db->table('history_access_logs')->insert($dataActivity);
@@ -56,7 +56,7 @@
                 "id"		 => $id,
                 "activity" 	 => "UPDATED",
                 "keterangan" => "MENGUBAH DATA SAHAM",
-                "date"		 => date("d-m-Y H:i:s")
+                "date"		 => date("Y-m-d H:i:s")
             ];
             return $this->db->table('saham')->update($data,$where);
         }

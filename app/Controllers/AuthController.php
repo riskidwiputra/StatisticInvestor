@@ -10,12 +10,10 @@
 			}else{
 				$this->view('login/login');
 			}
-			
         } 
         
         public function Login()
 		{   
-
 			if ($this->model('Login_Model')->login($_POST) > 0) { 
 			redirect('/');	
 			exit;
@@ -24,7 +22,6 @@
 			exit;
 			}    
 		} 
-		
 
 		public function Logout()
 		{
@@ -36,7 +33,9 @@
 		{
 			if( Session::check('admin') == true ){ 
 				$id_admin = Session::get('admin');
-				$data['content'] = $this->db->table('history_access_logs')->whereAll('id_admin', $id_admin);
+
+				$data['content'] = $this->db->query("SELECT * FROM history_access_logs WHERE id_admin = '$id_admin' ORDER BY date ASC");
+				$data['content'] = $this->db->resultset();
 				$this->view('template/header');
                 $this->view('pages/activity_log/activity_log',$data);
                 $this->view('template/footer');	
@@ -64,6 +63,10 @@
 			}else{
 				$this->view('login/login');
 			}
+		}
+		public function Error()
+		{
+			$this->view('error/404');
 		}
 		
 	}
