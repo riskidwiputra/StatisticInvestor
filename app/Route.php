@@ -68,7 +68,12 @@
 	Route::get('/activity-log', 					'AuthController@activity_log');
 	Route::get('/history_transfer', 				'AuthController@history_transfer');
 
+	// Data Management 
+	Route::get('/data-management', 					'DatamanagementController@Index');
+	Route::get('/add-datamanagement', 				'DatamanagementController@AddDatamanagement');
 
+	Route::post('/insert-datamanagement', 			'DatamanagementController@Insert');
+	
 	Route::post('/get-saham', 						'InvestasiController@Get_Saham');
 	Route::post('/get-harga/{id}', 					'InvestasiController@Get_Harga');
 	Route::post('/get-transfer', 					'InvestasiController@Get_Lembar');

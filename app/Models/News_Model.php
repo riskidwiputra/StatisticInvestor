@@ -83,7 +83,12 @@
                 'id_news' => $id
             ];
             $sql = $this->db->table('news')->selectWhere($dataId);
-            $idadmin 	= Session::get('admin');
+            if(Session::check('superadmin') == true) {
+                $idadmin 	= Session::get('superadmin');
+            }else{
+                $idadmin 	= Session::get('admin');
+            }
+        
             $dataActivity = [
                 "id_admin"	 => $idadmin,
                 "name_table" => "News",
@@ -109,7 +114,11 @@
             'id_news' => $id
         ];
         $sql = $this->db->table('news')->selectWhere($data);
-        $idadmin 	= Session::get('admin');
+        if(Session::check('superadmin') == true ) {
+            $idadmin 	= Session::get('superadmin');
+        }else{
+            $idadmin 	= Session::get('admin');
+        }
         $dataActivity = [
             "id_admin"	 => $idadmin,
             "name_table" => "News",
@@ -189,7 +198,11 @@
                 ];	
                 $sql = $this->db->table('news')->selectWhere($where);
         
-                $id_admin 	= Session::get('admin');
+                if(Session::check('superadmin') == true) {
+                    $idadmin 	= Session::get('superadmin');
+                }else{
+                    $idadmin 	= Session::get('admin');
+                }
                     $dataActivity = [
                         "id_admin"	 => $id_admin,
                         "name_table" => "news",

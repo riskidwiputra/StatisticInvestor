@@ -123,10 +123,19 @@
                                 Flasher::setFlashSweet('Failed','Email is already in use','error'); 
                                 return false;
                             }
+                            if ($this->db->table('admin')->countRows($select) > 0) {
+                                Flasher::setFlashSweet('Failed','Email is already in use','error'); 
+                                return false;
+                            }
                             $select2 = [
                                 'username' => $username
                             ];
+                            
                             if ($this->db->table('investor')->countRows($select2) > 0) {
+                                Flasher::setFlashSweet('Failed','Username is already in use','error'); 
+                                return false;
+                            }
+                            if ($this->db->table('admin')->countRows($select2) > 0) {
                                 Flasher::setFlashSweet('Failed','Username is already in use','error'); 
                                 return false;
                             }
@@ -147,7 +156,7 @@
                         
                             
                             $this->db->table('investor')->insert($data);
-                            $id 	= Session::get('admin');
+                            $id 	= Session::get('superadmin');
                             $dataActivity = [
                                 "id_admin"	 => $id,
                                 "name_table" => "investor",
@@ -180,7 +189,7 @@
             'id_investor' => $id
         ];
         $sql = $this->db->table('investor')->selectWhere($data);
-        $idadmin 	= Session::get('admin');
+        $idadmin 	= Session::get('superadmin');
         $dataActivity = [
             "id_admin"	 => $idadmin,
             "name_table" => "investor",
@@ -365,7 +374,7 @@
                 'id_investor' => $id
                 ];	
                 $sqlinvestor = $this->db->table('investor')->selectWhere($where);
-                $id_admin 	= Session::get('admin');
+                $id_admin 	= Session::get('superadmin');
                     $dataActivity = [
                         "id_admin"	 => $id_admin,
                         "name_table" => "investor",

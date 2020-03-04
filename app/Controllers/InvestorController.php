@@ -3,7 +3,7 @@
 	class InvestorController extends Controller
 	{ 
         public function Investor(){
-            if(Session::check('admin') == true ){ 
+            if(Session::check('superadmin') == true ){ 
                 $data['content'] = $this->model('Investor_Model')->select();
                 $this->view('template/header');
                 $this->view('pages/investor/investor',$data);
@@ -14,7 +14,7 @@
             }
         }
         public function Add_Investor(){
-            if(Session::check('admin') == true ){ 
+            if(Session::check('superadmin') == true ){ 
                 $this->view('template/header');
                 $this->view('pages/investor/add_investor');
                 $this->view('template/footer');	
@@ -25,7 +25,7 @@
         }
         public function SelectUpdate($id)
         {
-            if(Session::check('admin') == true ){ 
+            if(Session::check('superadmin') == true ){ 
                 $data['content'] = $this->model('Investor_Model')->selectUpdate($id);
                 $this->view('template/header');
                 $this->view('pages/investor/update_investor',$data);
@@ -38,7 +38,7 @@
         public function ChangePassword($id)
         {
             $data['id'] = $id;
-            if(Session::check('admin') == true ){ 
+            if(Session::check('superadmin') == true ){ 
                 $this->view('template/header');
                 $this->view('pages/investor/change_password',$data);
                 $this->view('template/footer');	

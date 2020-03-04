@@ -3,7 +3,7 @@
 	class ReportController extends Controller
 	{ 
         public function Report(){
-            if(Session::check('admin') == true ){ 
+            if(Session::check('superadmin') == true ){ 
                 $data['content'] = $this->model('Report_Model')->select();
                 foreach ($data['content'] as $rows) { 
                     $bulan[] = date("Y-m",strtotime($rows['date']));
@@ -26,7 +26,7 @@
             }
         }
         public function Add_Report(){
-            if(Session::check('admin') == true ){ 
+            if(Session::check('superadmin') == true ){ 
                 $this->view('template/header');
                 $this->view('pages/report/add_report');
                 $this->view('template/footer');	
@@ -50,11 +50,11 @@
         public function Download($id){
             if ( $this->model('Report_Model')->download($id) > 0) {
                 Flasher::setFlashSweet('successfully','Data successfully added','success');
-                redirect('/report');
+                redirect('/');
                 exit;
             } else { 
                 // Flasher::setFlashSweet('Failed','Data failed to add','warning'); 
-                redirect('/report');
+                redirect('/');
                 exit;
             }   
         }

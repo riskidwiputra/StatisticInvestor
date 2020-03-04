@@ -3,7 +3,7 @@
 	class SahamController extends Controller
 	{ 
         public function Saham(){
-            if(Session::check('admin') == true ){ 
+            if(Session::check('superadmin') == true ){ 
                 $data['content'] = $this->model('Saham_Model')->select();
                 $data['saham'] = $this->db->table("saham")->all();
                 $data['saham'] = $this->db->rowCount();
@@ -16,7 +16,7 @@
             }
         }
         public function Add_Saham(){
-            if(Session::check('admin') == true ){ 
+            if(Session::check('superadmin') == true ){ 
                 $this->view('template/header');
                 $this->view('pages/saham/add_saham');
                 $this->view('template/footer');	
@@ -27,7 +27,7 @@
         }
         public function Edit_Saham($id){
             $data['content'] = $this->db->table('saham')->where('id_saham', $id); 
-            if(Session::check('admin') == true ){ 
+            if(Session::check('superadmin') == true ){ 
                 $this->view('template/header');
                 $this->view('pages/saham/edit_saham',$data);
                 $this->view('template/footer');	

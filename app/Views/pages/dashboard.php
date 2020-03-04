@@ -1,13 +1,15 @@
-<div class="main-panel mt-5">
+<div class="main-panel ">
           <div class="content-wrapper">
+        
           
-            
+
             <div class="page-header">
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                   <i class="mdi mdi-home"></i>
                 </span> Dashboard </h3>
-                <?php if(Session::check('admin') == true){ }else{ ?>
+                <?php if(Session::check('superadmin') || Session::check('admin') == true ){ }else{ ?>
+                
             
               <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
@@ -181,7 +183,11 @@
                   <div class="card-body"> 
                         <div class="row">
                             <div class="mx-auto">
+                            <?php if($data['report']){ ?> 
                                 <a href="<?= url('download-report/').$data['report']['id_report'] ?>"><button class="btn btn-outline-primary"><i class="mdi mdi-cloud-download"></i> Download Report</button> </a>
+                            <?php }else{ ?>
+                              <a href="<?= url('download-report/')?>4"><button class="btn btn-outline-primary"><i class="mdi mdi-cloud-download"></i> Download Report</button> </a>
+                            <?php } ?>
                             </div>
                         </div> 
                   </div>
@@ -191,7 +197,7 @@
           </div>
           <!-- content-wrapper ends -->
 
-<script src="<?= asset('assets/js/highcharts.js') ?>"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/highcharts-3d.js"></script>
 <script src="https://code.highcharts.com/modules/data.js"></script>
 <script src="https://code.highcharts.com/modules/drilldown.js"></script>

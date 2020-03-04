@@ -45,14 +45,14 @@
                 'date'      => $date
             ];
             $this->db->table('report')->insert($data);
-            $id_admin 	= Session::get('admin');
+            $id_admin 	= Session::get('superadmin');
             $dataActivity = [
                 "id_admin"	 => $id_admin,
                 "name_table" => "Report",
                 "id"		 => $hash,
                 "activity" 	 => "INSERTED",
                 "keterangan" => "MEMBUAT REPORT BULAN ".date('m'),
-                "date"		 => date("d-m-Y H:i:s")
+                "date"		 => date("Y-m-d H:i:s")
             ];
         
             $activity = $this->db->table('history_access_logs')->insert($dataActivity);
@@ -64,14 +64,14 @@
             'id_report' => $id
         ];
         $sql = $this->db->table('report')->selectWhere($data);
-        $idadmin 	= Session::get('admin');
+        $idadmin 	= Session::get('superadmin');
         $dataActivity = [
             "id_admin"	 => $idadmin,
             "name_table" => "Report",
             "id"		 => $id,
             "activity" 	 => "Deleted",
             "keterangan" => "MENGHAPUS REPORT BULAN ".date('m',$sql['date']),
-            "date"		 => date("d-m-Y H:i:s")
+            "date"		 => date("Y-m-d H:i:s")
         ];
 
         $activity = $this->db->table('history_access_logs')->insert($dataActivity);
@@ -95,7 +95,7 @@
         //     $where = [
         //         "id_saham"  => $id
         //     ];
-        //     $id_admin 	= Session::get('admin');
+        //     $id_admin 	= Session::get('superadmin');
         //     $dataActivity = [
         //         "id_admin"	 => $id_admin,
         //         "name_table" => "Saham",
@@ -119,7 +119,7 @@
             if( Session::check('users') == true ){ 
             $idP = Session::get('users');
             $sql_investor = $this->db->table('investor')->where('id_investor', $idP);
-            $idadmin = Session::get('admin');
+            $idadmin = Session::get('superadmin');
             $dataActivity = [
                 "id_admin"	 => $idadmin,
                 "name_table" => "Download",
@@ -132,7 +132,7 @@
     
             $activity = $this->db->table('history_access_logs')->insert($dataActivity);
             }else{
-            $idP = Session::get('admin');
+            $idP = Session::get('superadmin');
             }
             $dataLog = [
 				'id' => $idP,

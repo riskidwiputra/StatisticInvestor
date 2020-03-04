@@ -1,4 +1,4 @@
-<div class="main-panel mt-5">
+<div class="main-panel ">
         <div class="content-wrapper">
         
         
@@ -7,7 +7,6 @@
             <span class="page-title-icon bg-gradient-primary text-white mr-2">
                 <i class="mdi mdi-newspaper"></i>
             </span> Add News </h3>
-          
             <nav aria-label="breadcrumb">
             
             </nav>

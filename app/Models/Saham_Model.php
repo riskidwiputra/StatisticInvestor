@@ -24,7 +24,7 @@
                 'tahun'         => $year
             ];
             $this->db->table('saham')->insert($data);
-            $id_admin 	= Session::get('admin');
+            $id_admin 	= Session::get('superadmin');
             $dataActivity = [
                 "id_admin"	 => $id_admin,
                 "name_table" => "Saham",
@@ -49,7 +49,7 @@
             $where = [
                 "id_saham"  => $id
             ];
-            $id_admin 	= Session::get('admin');
+            $id_admin 	= Session::get('superadmin');
             $dataActivity = [
                 "id_admin"	 => $id_admin,
                 "name_table" => "Saham",

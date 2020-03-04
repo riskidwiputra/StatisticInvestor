@@ -3,7 +3,7 @@
 	class InvestasiController extends Controller
 	{ 
         public function Investasi(){
-            if(Session::check('admin') == true ){ 
+            if(Session::check('superadmin') == true ){ 
                 $data['investor'] = $this->model('Investasi_Model')->select_investor();
                 $data['saham'] = $this->db->table('saham')->selectSingle(); 
                 $data['investasi']= $this->db->query("SELECT * FROM investasi");

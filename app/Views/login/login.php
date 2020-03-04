@@ -20,7 +20,7 @@
   </head>
   <body>
   <div class="container">
-        
+    
           <!-- <div class="row flex-grow">
           
             <div class="col-lg-4 col-md-6 mx-auto">
@@ -69,7 +69,6 @@
             background-color:rgba(250, 240, 240, 0.452);
           }
         </style>
-
         <div class="card o-hidden border-primary shadow-lg">
             <img class="card-img-top py-2 px-2" src="<?=asset('assets/images/streammm-universe.png');?>">
           <div class="card-body p-0">
@@ -82,9 +81,10 @@
                   <div class="col-lg-12">
                       <?php Flasher::flash();?>
                   </div>
+            
                   <h4>Hello! let's get started</h4>
                   <h6 class="font-weight-light">Sign in to continue.</h6>
-               
+              
                   </div>
                   <form class="pt-3" action="<?= BASEURL ?>/login" method="post">
                     <div class="form-group">
@@ -95,7 +95,7 @@
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                        <input type="checkbox" class="custom-control-input" name="rememberMe" id="customCheck">
                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                       </div>
                     </div>

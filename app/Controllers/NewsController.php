@@ -5,7 +5,7 @@
 		
 		public function Index()
 		{
-			if(Session::check('users') || Session::check('admin') == true ){ 
+			if(Session::check('superadmin') || Session::check('admin') == true ){ 
 				// $data['judul'] = 'Kategori'; 
 				$data['daily'] 				= $this->model('News_Model')->selectdaily();
 				$data['monthly']  			= $this->db->query("SELECT * FROM news WHERE category = 'monthly' ORDER BY date DESC"); 
@@ -30,7 +30,7 @@
 		
 		public function Add_Daily()
 		{
-			if(Session::check('admin') == true ){ 
+			if(Session::check('superadmin') || Session::check('admin') == true ){ 
 				// $data['judul'] = 'Kategori'; 
 				// $data['content'] = $this->model('Kategori_Model')->select();
 				$this->view('template/header');
@@ -44,7 +44,7 @@
 		
 		public function Add_Monthly()
 		{
-			if(Session::check('admin') == true ){ 
+			if(Session::check('superadmin') || Session::check('admin') == true ){ 
 				// $data['judul'] = 'Kategori'; 
 				// $data['content'] = $this->model('Kategori_Model')->select();
 				$this->view('template/header');
@@ -59,7 +59,7 @@
         {	
 			$data = $this->db->table("news")->where("url",$id);
 			if ($data['url'] == $id){
-				if(Session::check('admin') == true ){ 
+				if(Session::check('superadmin') || Session::check('admin') == true ){ 
 					$data['content'] = $this->model('News_Model')->selectUpdate($id);
 					$this->view('template/header');
 					$this->view('pages/news/update_news',$data);
@@ -77,7 +77,7 @@
         {
 			$data = $this->db->table("news")->where("url",$id);
 			if ($data['url'] == $id){
-				if(Session::check('admin') == true ){ 
+				if(Session::check('users') || Session::check('admin') == true || Session::check('superadmin') == true ){ 
 				$data['content'] = $this->db->table('news')->where('url', $id);
 				$this->view('template/header');
 				$this->view('pages/news/single_news',$data);
@@ -95,17 +95,21 @@
 		public function Pagination_Daily($id)
 		{
 			$data['daily'] 			= $this->model('News_Model')->selectpagination($id);
-			$data['monthly']		= $this->db->query("SELECT * FROM news WHERE category = 'monthly' ORDER BY date DESC"); 
+			$data['monthly']		= $this->db->query("SELECT * FROM news WHERE category = 'monthly' ORDER BY date DESC LIMIT 0, 4"); 
 			$data['monthly']  		= $this->db->resultSet();
-			$jumlahData 			= $this->db->query("SELECT COUNT(*) AS jumlah FROM news WHERE category = 'daily'");
-			$jumlahData 			= $this->db->single();
+			$jumlahDatadaily 			= $this->db->query("SELECT COUNT(*) AS jumlah FROM news WHERE category = 'daily'");
+			$jumlahDatadaily 			= $this->db->single();
+			$jumlahDataMonthly 			= $this->db->query("SELECT COUNT(*) AS jumlah FROM news WHERE category = 'monthly'");
+			$jumlahDataMonthly			= $this->db->single();
+			$limitMonthly				= 4;
+			$data['jumlahHalamanMonthly'] = ceil($jumlahDataMonthly['jumlah'] / $limitMonthly);
 			// batas news yang ingin di tampilkan 
 			$limit					= 4;
 			// mengambil angka page 
-			$data['page-daily']			= $id; 
+			$data['page-daily']		= $id; 
 			// membuat jumlah link number sebelum dan sesudah page yang aktif
 			$jumlah_number 			= 4;
-			$data['jumlahHalaman'] 	= ceil($jumlahData['jumlah'] / $limit);
+			$data['jumlahHalaman'] 	= ceil($jumlahDatadaily['jumlah'] / $limit);
 			$data['start_number']	= ($data['page-daily'] > $jumlah_number)? $data['page-daily'] - $jumlah_number : 1;
 			
 			$data['end_number']		= ($data['page-daily'] < ($data['jumlahHalaman'] - $jumlah_number))? $data['page-daily'] + $jumlah_number :$data['jumlahHalaman'];
@@ -116,10 +120,14 @@
 		public function Pagination_Monthly($id)
 		{
 			$data['monthly'] 		= $this->model('News_Model')->selectpagination2($id);
-			$data['daily']		    = $this->db->query("SELECT * FROM news WHERE category = 'daily' ORDER BY date DESC"); 
+			$data['daily']		    = $this->db->query("SELECT * FROM news WHERE category = 'daily' ORDER BY date DESC LIMIT 0, 4"); 
 			$data['daily']  		= $this->db->resultSet();
 			$jumlahData 			= $this->db->query("SELECT COUNT(*) AS jumlah FROM news WHERE category = 'monthly'");
 			$jumlahData 			= $this->db->single();
+			$jumlahDataDaily 			= $this->db->query("SELECT COUNT(*) AS jumlah FROM news WHERE category = 'daily'");
+			$jumlahDataDaily 			= $this->db->single();
+			$limitDaily					= 4;
+			$data['jumlahHalamanDaily'] = ceil($jumlahDataDaily['jumlah'] / $limitDaily);
 			// batas news yang ingin di tampilkan 
 			$limit					= 4;
 			// mengambil angka page 

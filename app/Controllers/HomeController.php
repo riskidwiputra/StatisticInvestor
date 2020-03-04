@@ -5,7 +5,7 @@
 		
 		public function Index()
 		{
-			if(Session::check('users') || Session::check('admin') == true ){ 
+			if(Session::check('users') || Session::check('admin') == true || Session::check('superadmin') == true ){ 
 				$data['judul']	 	= 'Portal - dashboard'; 
 				$data['saham'] 		= $this->db->table('saham')->selectSingle(); 
 				$data['investor']	= $this->db->table('investor')->where('id_investor', Session::get('users'));

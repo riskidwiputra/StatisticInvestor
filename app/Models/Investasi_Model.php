@@ -27,7 +27,7 @@ class Investasi_Model extends Model
 			'lot'		   => $lot
 		];
 		$this->db->table('investasi')->insert($data);
-		$id 	= Session::get('admin');
+		$id 	= Session::get('superadmin');
 		$dataActivity = [
 			"id_admin"	 => $id,
 			"name_table" => "investasi",
@@ -101,7 +101,7 @@ class Investasi_Model extends Model
 			Flasher::setFlashSweet('Failed','Data history_transfer Gagal Di Input','error'); 
 			return false;
 		}
-		$id 	= Session::get('admin');
+		$id 	= Session::get('superadmin');
 		$dataActivity = [
 			"id_admin"	 => $id,
 			"name_table" => "investasi",
@@ -182,7 +182,7 @@ class Investasi_Model extends Model
 			Flasher::setFlashSweet('Failed','Data history_transfer Gagal Di Input','error'); 
 			return false;
 		}
-		$id 	= Session::get('admin');
+		$id 	= Session::get('superadmin');
 		$dataActivity = [
 			"id_admin"	 => $id,
 			"name_table" => "investasi",

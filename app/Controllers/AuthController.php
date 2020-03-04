@@ -5,8 +5,8 @@
 		
 		public function IndexLogin()
 		{	
-			if(Session::check('users') || Session::check('admin') == true ){ 
-				redirect('/');
+			if(Session::check('users') || Session::check('admin') == true || Session::check('superadmin') == true ){ 
+			redirect('/');
 			}else{
 				$this->view('login/login');
 			}
@@ -14,27 +14,36 @@
         
         public function Login()
 		{   
-			if ($this->model('Login_Model')->login($_POST) > 0) { 
-			redirect('/');	
-			exit;
-			}else{ 
-			redirect('/login');
-			exit;
-			}    
+			if(Session::check('users') || Session::check('admin') == true || Session::check('superadmin') == true ){ 
+				redirect('/');
+			}else{
+				if ($this->model('Login_Model')->login($_POST) > 0) { 
+				redirect('/');	
+				exit;
+				}else{ 
+				redirect('/login');
+				exit;
+				}    
+			
+			}
+
 		} 
 
 		public function Logout()
 		{
 			Session::unset();
+			if(isset($_COOKIE['cookielogin']))      
+			{
+				setcookie("cookielogin","", 0);
+			}
 			redirect('/');
 		}
 
 		public function activity_log()
 		{
-			if( Session::check('admin') == true ){ 
-				$id_admin = Session::get('admin');
-
-				$data['content'] = $this->db->query("SELECT * FROM history_access_logs WHERE id_admin = '$id_admin' ORDER BY date ASC");
+			if( Session::check('superadmin') == true ){ 
+				$id_admin = Session::get('superadmin');
+				$data['content'] = $this->db->query("SELECT * FROM history_access_logs WHERE id_admin = '$id_admin' ORDER BY date DESC");
 				$data['content'] = $this->db->resultset();
 				$this->view('template/header');
                 $this->view('pages/activity_log/activity_log',$data);
@@ -53,7 +62,7 @@
 				$this->view('template/header');
                 $this->view('users/history_transfer/history_transfer',$data);
 				$this->view('template/footer');	
-			}else if( Session::check('admin') == true ){ 
+			}else if( Session::check('superadmin') == true ){ 
 				// $id_admin = Session::get('admin');
 				// $data['pengirim'] = $this->db->table('investor')->where('id_investor', $id_users);
 				$data['content'] = $this->db->table('history_transfer')->selectAll();
