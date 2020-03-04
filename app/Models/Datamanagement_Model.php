@@ -1,6 +1,6 @@
 <?php 
 
-class DataManagement_Model extends Model
+class Datamanagement_Model extends Model
 {
     public function select(){
         $select = $this->db->query("SELECT * FROM admin WHERE level = 'admin' ORDER BY date DESC "); 
