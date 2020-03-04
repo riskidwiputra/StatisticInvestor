@@ -128,8 +128,6 @@
                 "keterangan" => "INVESTOR ".$sql['investor']['username']." DOWNLOAD REPORT BULAN ".date('m', $sql['date']),
                 "date"		 => date("Y-m-d H:i:s")
             ];
-            var_dump($dataActivity);
-    
             $activity = $this->db->table('history_access_logs')->insert($dataActivity);
             }else{
             $idP = Session::get('superadmin');
@@ -157,7 +155,7 @@
                 flush();
                 readfile($file);
                 
-                
+                return true;
                 exit;
             } 
         }
