@@ -50,5 +50,8 @@
 				exit;
 			}   
 		} 
-		
+		public function tes()
+		{
+			var_dump("berhasisl");
+		}
 	}

@@ -69,7 +69,7 @@
 	Route::get('/history_transfer', 				'AuthController@history_transfer');
 
 	// Data Management 
-	Route::get('/data-management', 					'DatamanagementController@Index');
+	Route::get('/data-management', 					'HomeController@tes');
 	Route::get('/add-datamanagement', 				'DatamanagementController@AddDatamanagement');
 
 	Route::post('/insert-datamanagement', 			'DatamanagementController@Insert');
