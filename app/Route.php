@@ -70,7 +70,7 @@
 
 	// Data Management 
 	Route::get('/data-management', 					'ManagementController@Management');
-	Route::get('/add-datamanagement', 				'ManagementController@AddDatamanagement');
+	Route::get('/add-datamanagement', 				'ManagementController@Addmanagement');
 
 	Route::post('/insert-datamanagement', 			'ManagementController@Insert');
 	
