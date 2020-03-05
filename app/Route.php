@@ -73,6 +73,12 @@
 	Route::get('/add-datamanagement', 				'ManagementController@Addmanagement');
 
 	Route::post('/insert-datamanagement', 			'ManagementController@Insert');
+
+	Route::get('/profile', 							'ProfileController@Profile');
+	Route::get('/update-profile', 					'ProfileController@Update_Profile');
+	Route::get('/change-password_profile/{id}', 	'ProfileController@Change_Password');
+	Route::post('/update-profile/{id}', 			'ProfileController@Update');
+	Route::post('/change-password_profile/{id}', 	'ProfileController@Change_Password_profile');
 	
 	Route::post('/get-saham', 						'InvestasiController@Get_Saham');
 	Route::post('/get-harga/{id}', 					'InvestasiController@Get_Harga');

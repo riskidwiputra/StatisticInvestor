@@ -75,8 +75,8 @@
                 </div>
               </a>
               <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-              <?php if(Session::get("superadmin")){ ?>
-                <a class="dropdown-item" href="#">
+              <?php if(Session::get("superadmin") || Session::get("admin") ){ ?>
+                <a class="dropdown-item" href="<?= url('profile') ?>">
                   <i class="mdi mdi-account mr-2 text-success"></i> Profil </a>
               <?php } ?>
               <?php if(Session::get("superadmin")){ ?>

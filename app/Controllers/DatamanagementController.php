@@ -18,7 +18,11 @@
 		{   
             if(Session::check('superadmin') == true ){ 
 				$this->view('template/header', $data);
-				$this->view('pages/data_management/add_data_management',);
+				$this->view('pages/data_management/add_data_management'
+			
+			
+			
+			);
 				$this->view('template/footer');		
 			}else{
 				$this->view('login/login');
