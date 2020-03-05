@@ -23,7 +23,18 @@
 			}else{
 				$this->view('login/login');
             }
-		} 
+        } 
+        public function Insert(){
+			if ( $this->model('Datamanagement_Model')->insert($_POST) > 0) {
+                Flasher::setFlashSweet('successfully','Data successfully added','success');
+                redirect('/data-management');
+                exit;
+            } else { 
+                // Flasher::setFlashSweet('Failed','Data failed to add','warning'); 
+                redirect('/data-management');
+                exit;
+            }   
+		}
 
     
     }
