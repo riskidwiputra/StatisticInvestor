@@ -21,7 +21,11 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Daily</h4>
+                        <?php if (Session::check('admin') == true || Session::check('superadmin') == true) { ?>
+                        
+                        
                         <a href="<?= url("addnewsdaily") ?>"> <button class="btn btn-inverse-primary"><span class="fa fa-plus-circle fa-spin"></span> Add News Daily </button></a>
+                        <?php } ?>
                         <?php if($data['daily']){ ?>
                         <?php foreach ($data['daily'] as $rows) { ?>
                         <div class="media pt-4">
@@ -30,6 +34,7 @@
                                 <div class="pb-2">
                                 </div>
                                 <h5 class="mt-0"><?= strtoupper($rows['title']) ?>
+                                <?php if (Session::check('admin') == true || Session::check('superadmin') == true) { ?>
                                     <span style="text-align: right;" class="align-right text-right ml-3">       
                                         <a href="<?= url('update-news/').$rows['url']; ?>">
                                         <button type="button" style="padding: 0.1rem 0.8rem;" class="btn btn-sm btn-outline-primary ">
@@ -43,6 +48,7 @@
                                         </button>
                                         </a> 
                                     </span>
+                                <?php } ?>
                                 </h5>
                                 <p style="margin-top:-15px;">
                                 <?php  
@@ -118,13 +124,16 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Monthly</h4>
+                        <?php if (Session::check('admin') == true || Session::check('superadmin') == true) { ?>
                         <a href="<?= url("addnewsmonthly") ?>"> <button class="btn btn-inverse-primary"><span class="fa fa-plus-circle fa-spin"></span> Add News Monthly </button></a>
+                        <?php } ?>
                         <?php if($data['monthly']){ ?>
                         <?php foreach ($data['monthly'] as $rows) { ?>
                         <div class="media pt-4">
                         <img class="align-self-start mr-3" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:200px; height:100px;">
                             <div class="media-body d-none d-xl-block">
                                 <h5 class="mt-0"><?= strtoupper($rows['title']) ?>
+                                <?php if (Session::check('admin') == true || Session::check('superadmin') == true) { ?>
                                     <span style="text-align: right;" class="align-right text-right ml-3">
                                         <a href="<?= url('update-news/').$rows['url']; ?>">
                                         <button type="button" style="padding: 0.1px 0.8rem;" class="btn btn-sm btn-outline-primary ">
@@ -138,6 +147,7 @@
                                         </button>
                                         </a> 
                                     </span>
+                                <?php } ?>
                                 </h5>
                                 <p style="margin-top:-15px;">
                                     <?php  

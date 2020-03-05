@@ -28,6 +28,17 @@
 				$data['report'] = $this->db->query("SELECT * FROM report WHERE date LIKE '$hari%'");
 				$data['report'] = $this->db->single();
 				$data['investasi'] = $this->db->table('investasi')->selectAll();
+				$data['daily'] 				= $this->model('News_Model')->selectdaily();
+				$data['monthly']  			= $this->db->query("SELECT * FROM news WHERE category = 'monthly' ORDER BY date DESC"); 
+				$data['monthly']  			= $this->db->resultSet();
+				$jumlahDataDaily 			= $this->db->query("SELECT COUNT(*) AS jumlah FROM news WHERE category = 'daily'");
+				$jumlahDataDaily 			= $this->db->single();
+				$limitDaily					= 4;
+				$data['jumlahHalamanDaily'] = ceil($jumlahDataDaily['jumlah'] / $limitDaily);
+				$jumlahDataMonthly 			= $this->db->query("SELECT COUNT(*) AS jumlah FROM news WHERE category = 'monthly'");
+				$jumlahDataMonthly			= $this->db->single();
+				$limitMonthly				= 4;
+				$data['jumlahHalamanMonthly'] = ceil($jumlahDataMonthly['jumlah'] / $limitMonthly);
 				$this->view('template/header', $data);
 				$this->view('pages/dashboard', $data);
 				$this->view('template/footer');			

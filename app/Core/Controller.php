@@ -41,6 +41,36 @@
                 return false;
             }
         }
+        public function is_Cookie($ctr ,$data)
+        {
+            if(isset($_COOKIE['cookielogin'] )){
+                $username = $ctr;
+                $dataUsers = $this->db->query('
+                          SELECT * FROM investor
+                        WHERE username = "'.$username.'" 
+                        ');
+                $dataUsers = $this->db->single();
+                if ($dataUsers == true) {
+                $validasi2 = $dataUsers['id_investor'];
+                }else{
+                $dataUsers = $this->db->query('
+                SELECT * FROM admin
+                WHERE username = "'.$username.'" 
+                ');
+                $dataUsers = $this->db->single();
+                $validasi2 = $dataUsers['id_admin'];
+                }
+                $validasi = decrypt($data);
+
+                if ($validasi2 == $validasi) {
+                    return true;
+                }else{
+                    return false;
+                }
+            }else{
+                return false;
+            }
+        }
 
         public function post($name, $type = null) 
         {

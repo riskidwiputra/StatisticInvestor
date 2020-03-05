@@ -118,17 +118,6 @@
             $file = $back_dir.$sql['report'];
             if( Session::check('users') == true ){ 
             $idP = Session::get('users');
-            $sql_investor = $this->db->table('investor')->where('id_investor', $idP);
-            $idadmin = Session::get('superadmin');
-            $dataActivity = [
-                "id_admin"	 => $idadmin,
-                "name_table" => "Download",
-                "id"		 => $idP,
-                "activity" 	 => "DOWNLOAD",
-                "keterangan" => "INVESTOR ".$sql['investor']['username']." DOWNLOAD REPORT BULAN ".date('m', $sql['date']),
-                "date"		 => date("Y-m-d H:i:s")
-            ];
-            $activity = $this->db->table('history_access_logs')->insert($dataActivity);
             }else{
             $idP = Session::get('superadmin');
             }
@@ -154,9 +143,8 @@
                 ob_clean();
                 flush();
                 readfile($file);
-                
-                return true;
                 exit;
             } 
+        
         }
     }

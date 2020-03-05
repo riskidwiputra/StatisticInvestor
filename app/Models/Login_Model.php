@@ -47,8 +47,14 @@
 						$dataUsers = $this->db->single();  					
 
 						if (password_verify($password, $dataUsers['password']) == true) {
-							$_SESSION['logged'] = 1; 
-							
+					
+							$time = time();
+									$value = encrypt($dataUsers['id_investor']);		
+
+									if($check) {        
+									setcookie("cookielogin", $value, $time + 3600 * 24 *30);
+									setcookie("cookieUsername", $email, $time + 3600 * 24 *30);
+									}
 								Session::unset();
 								Session::set('users',$dataUsers['id_investor']);  
 
@@ -69,6 +75,13 @@
 							$dataUsers = $this->db->single();  
 							
 							if (password_verify($password, $dataUsers['password']) == true) {
+								$time = time();
+									$value = encrypt($dataUsers['id_investor']);		
+
+									if($check) {        
+									setcookie("cookielogin", $value, $time + 3600 * 24 *30);
+									setcookie("cookieUsername", $email, $time + 3600 * 24 *30);
+									}
 								
 								Session::unset();
 								Session::set('users',$dataUsers['id_investor']);  
@@ -91,7 +104,13 @@
 							$dataAdmin = $this->db->single();  
 							if ($dataAdmin == true) {
 								if (password_verify($password, $dataAdmin['password']) == true) {
+									$time = time();
+									$value = encrypt($dataAdmin['id_admin']);		
 
+									if($check) {        
+									setcookie("cookielogin", $value, $time + 3600 * 24 *30);
+									setcookie("cookieUsername", $email, $time + 3600 * 24 *30);
+									}
 								
 								Session::unset();
 								Session::set('admin',$dataAdmin['id_admin']);  
@@ -110,7 +129,13 @@
 							$dataSuperAdmin = $this->db->single();  
 							if ($dataSuperAdmin == true) {
 								if (password_verify($password, $dataSuperAdmin['password']) == true) {
-								
+									$time = time();
+									$value = encrypt($dataSuperAdmin['id_admin']);		
+
+									if($check) {        
+									setcookie("cookielogin", $value, $time + 3600 * 24 *30);
+									setcookie("cookieUsername", $email, $time + 3600 * 24 *30);
+									}
 								Session::unset();
 								Session::set('superadmin',$dataSuperAdmin['id_admin']);  
 									
@@ -133,7 +158,13 @@
 							if ($dataAdmin == true) {
 								if (password_verify($password, $dataAdmin['password']) == true) {
 							
+									$time = time();
+									$value = encrypt($dataAdmin['id_admin']);		
 
+									if($check) {        
+									setcookie("cookielogin", $value, $time + 3600 * 24 *30);
+									setcookie("cookieUsername", $email, $time + 3600 * 24 *30);
+									}
 									Session::unset();
 									Session::set('admin',$dataAdmin['id_admin']);  
 										
@@ -155,9 +186,10 @@
 							
 								if (password_verify($password, $dataSuperAdmin['password']) == true) {
 									$time = time();
-									$value = password_hash($dataSuperAdmin['id_admin'], PASSWORD_DEFAULT);
+									$value = encrypt($dataSuperAdmin['id_admin']);		
+
 									if($check) {        
-									setcookie("cookielogin", $dataSuperAdmin['id_admin'], $time + 3600 * 24 *30);
+									setcookie("cookielogin", $value, $time + 3600 * 24 *30);
 									setcookie("cookieUsername", $email, $time + 3600 * 24 *30);
 									}
 								Session::unset();
@@ -182,6 +214,12 @@
 				}
 			}
 					
+		}
+		// Encrypt cookie
+		public function encryptCookie( $value ) {
+			$key = 'youkey';
+			$newvalue = base64_encode( mcrypt_encrypt( MCRYPT_RIJNDAEL_256, md5( $key ), $value, MCRYPT_MODE_CBC, md5( md5( $key ) ) ) );
+			return( $newvalue );
 		}
 		public function save_device($access)
 		{

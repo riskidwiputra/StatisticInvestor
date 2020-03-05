@@ -197,6 +197,7 @@
                 'id_news' => $id
                 ];	
                 $sql = $this->db->table('news')->selectWhere($where);
+
         
                 if(Session::check('superadmin') == true) {
                     $idadmin 	= Session::get('superadmin');
@@ -204,7 +205,7 @@
                     $idadmin 	= Session::get('admin');
                 }
                     $dataActivity = [
-                        "id_admin"	 => $id_admin,
+                        "id_admin"	 => $idadmin,
                         "name_table" => "news",
                         "id"		 => $id,
                         "activity" 	 => "UPDATED",
