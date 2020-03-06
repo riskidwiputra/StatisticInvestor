@@ -107,11 +107,15 @@
                         <?php if($data['daily']){ ?>
                         <?php foreach ($data['daily'] as $rows) { ?>
                         <div class="media pt-4">
+                            <a href="<?= url('news/').$rows['url']; ?>">
                             <img class="align-self-start mr-3" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:200px; height:100px;">
+                            </a>
                             <div class="media-body d-none d-xl-block">      
                                 <div class="pb-2">
                                 </div>
+                                <a href="<?= url('news/').$rows['url']; ?>">
                                 <h5 class="mt-0"><?= strtoupper($rows['title']) ?>
+                                </a>
                                 </h5>
                                 <p style="margin-top:-15px;">
                                 <?php  
@@ -200,7 +204,7 @@
                                     if ( str_word_count($rows['content']) > 60 ){
                                     echo  substr($text,0,250)." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
                                     } else {
-                                    echo $text;
+                                      echo $text."... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>";
                                     }
                                     ?>
                                 </p>

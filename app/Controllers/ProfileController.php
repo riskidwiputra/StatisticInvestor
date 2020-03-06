@@ -47,18 +47,7 @@
             }
         }
         
-        // public function Delete($id)
-		// {
-		// 	if ($this->model('Investor_Model')->delete($id) > 0 ) {
-		// 		Flasher::setFlashSweet('successfully','Data successfully deleted','success'); 
-		// 		redirect('/investor');
-		// 			exit;
-		// 	}else{
-		// 		Flasher::setFlashSweet('Failed','Data failed to delete','warning'); 
-		// 		redirect('/investor');
-		// 		exit;
-        //     }
-        // }
+        
 
         public function Update($id)
         {

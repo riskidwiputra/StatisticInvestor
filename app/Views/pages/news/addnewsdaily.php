@@ -35,7 +35,7 @@
                             <div class="form-group">
                                 <label for="content">Content</label> 
                                 <div class="input-group mb-3">
-                                    <textarea class="form-control ckeditor upload" name="content" data-portal="<?= paths('path_portal_News'); ?>" placeholder="Enter your Content..." required="" rows="10"></textarea>
+                                    <textarea class="form-control ckeditor" name="content"  placeholder="Enter your Content..." required="" rows="10"></textarea>
                                 </div>
                             </div>
                         </div>

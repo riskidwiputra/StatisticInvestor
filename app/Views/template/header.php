@@ -17,7 +17,6 @@
     <!-- endinject -->
     <!-- Layout styles -->
     <link rel="stylesheet" href="<?= asset('assets/css/style.css'); ?>">
-   
 
     <link href="<?= BASEURL ?>/public/assets/vendors/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
   <!-- <link href=" https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet"> -->

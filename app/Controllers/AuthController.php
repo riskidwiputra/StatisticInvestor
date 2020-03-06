@@ -22,6 +22,13 @@
 		{   
 			if(Session::check('users') || Session::check('admin') || Session::check('superadmin') == true ){ 
 				redirect('/');
+			}else if ($_COOKIE['cookielogin'] || $_COOKIE['cookieUsername'] == true ){
+				$validasi = $this->is_Cookie($_COOKIE['cookieUsername'] , $_COOKIE['cookielogin']);
+				if ($validasi == true) {
+					redirect('/');
+				}else{
+					redirect('/login');
+				}
 			}else{
 				if ($this->model('Login_Model')->login($_POST) > 0) { 
 				redirect('/');	
