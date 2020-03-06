@@ -2988,6 +2988,7 @@
             },
             credits: {
                 enabled: !0,
+                href: "https://stream-universe.id/",
                 position: {
                     align: "right",
                     x: -10,
@@ -2999,7 +3000,7 @@
                     color: "#999999",
                     fontSize: "9px"
                 },
-                text: "Stream - Univese"
+                text: "Stream Universe"
             }
         };
         d.setOptions = function (g) {
