@@ -106,18 +106,19 @@
                         <h4 class="card-title">Daily</h4>
                         <?php if($data['daily']){ ?>
                         <?php foreach ($data['daily'] as $rows) { ?>
-                        <div class="media pt-4">
-                            <a href="<?= url('news/').$rows['url']; ?>">
-                            <img class="align-self-start mr-3" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:200px; height:100px;">
-                            </a>
-                            <div class="media-body d-none d-xl-block">      
-                                <div class="pb-2">
-                                </div>
+                          <div class="row mt-3">
+                            <div class="col-md-3">
+                              <a href="<?= url('news/').$rows['url']; ?>">
+                              <img class="" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:100%; height:100px;">
+                              </a>
+                            </div>
+                            <div class="col-md-9 ">
                                 <a href="<?= url('news/').$rows['url']; ?>">
-                                <h5 class="mt-0"><?= strtoupper($rows['title']) ?>
+                                <h5><?= strtoupper($rows['title']) ?>
                                 </a>
                                 </h5>
-                                <p style="margin-top:-15px;">
+                                
+                                <p style="margin-top:-15px;" >
                                 <?php  
                                 $text = htmlspecialchars_decode($rows['content']);
                                 if ( str_word_count($rows['content']) > 60 ){
@@ -126,8 +127,9 @@
                                 echo $text."... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>";
                                 }?>
                                 </p>
-                            </div> 
-                        </div>
+                            
+                            </div>
+                          </div>     
                         <?php } ?>
                         <nav aria-label="Page navigation example">
                             <ul class="pagination text-primary justify-content-center ">
@@ -193,23 +195,30 @@
                         <h4 class="card-title">Monthly</h4>
                         <?php if($data['monthly']){ ?>
                         <?php foreach ($data['monthly'] as $rows) { ?>
-                        <div class="media pt-4">
-                        <img class="align-self-start mr-3" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:200px; height:100px;">
-                            <div class="media-body d-none d-xl-block">
-                                <h5 class="mt-0"><?= strtoupper($rows['title']) ?>
-                                                                  </h5>
-                                <p style="margin-top:-15px;">
-                                    <?php  
-                                    $text = htmlspecialchars_decode($rows['content']);
-                                    if ( str_word_count($rows['content']) > 60 ){
-                                    echo  substr($text,0,250)." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
-                                    } else {
-                                      echo $text."... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>";
-                                    }
-                                    ?>
+                          <div class="row  mt-3">
+                            <div class="col-md-3">
+                              <a href="<?= url('news/').$rows['url']; ?>">
+                              <img class="" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:100%; height:100px;">
+                              </a>
+                            </div>
+                            <div class="col-md-9 ">
+                                <a href="<?= url('news/').$rows['url']; ?>">
+                                <h5><?= strtoupper($rows['title']) ?>
+                                </a>
+                                </h5>
+                                
+                                <p style="margin-top:-15px;" >
+                                <?php  
+                                $text = htmlspecialchars_decode($rows['content']);
+                                if ( str_word_count($rows['content']) > 60 ){
+                                echo  substr($text,0,250)." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
+                                } else {
+                                echo $text."... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>";
+                                }?>
                                 </p>
-                            </div> 
-                        </div>
+                            
+                            </div>
+                          </div>     
                         <?php } ?>
                         <nav aria-label="Page navigation example">
                             <ul class="pagination text-primary justify-content-center ">
