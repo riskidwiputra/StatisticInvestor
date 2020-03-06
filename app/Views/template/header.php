@@ -22,8 +22,7 @@
   <!-- <link href=" https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet"> -->
   
     <script src="<?= BASEURL ?>/public/assets/vendors/sweetalert/js/sweetalert2.all.min.js"></script>
-    
-  <script src="<?= BASEURL ?>/public/assets/vendor/jquery/jquery.min.js"></script> 
+
     <!-- End layout styles -->
     <link rel="shortcut icon" href="<?=asset('assets/images/streammm-universe.png');?>" />
 </head>
