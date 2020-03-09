@@ -34,8 +34,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="content">Content</label> 
-                                <div class="input-group mb-3">
-                                    <textarea class="form-control ckeditor upload" name="content" data-portal="<?= paths('path_portal_News'); ?>" placeholder="Enter your Content..." required="" rows="10"><?= $data['content']['content'] ?></textarea>
+                                <div class="input-group mb-3"><textarea class="form-control" name="desc" id="descAnnouncement" rows="4"><?=str_replace('public/', url().'/public/', $data['content']['content']);?></textarea>
                                 </div>
                             </div>
                         </div>

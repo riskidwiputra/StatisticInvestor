@@ -23,8 +23,7 @@
                 <form action="<?= BASEURL ?>/insert-news" method="post" enctype="multipart/form-data">
 
                     <div class="row">
-                    
-                        <div class="col-lg-7">
+                        <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="title">Title</label> 
                                 <div class="input-group mb-3">
@@ -32,22 +31,28 @@
                                     <input type="hidden" name="category" value="daily">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="content">Content</label> 
-                                <div class="input-group mb-3">
-                                    <textarea class="form-control ckeditor" name="content"  placeholder="Enter your Content..." required="" rows="10"></textarea>
-                                </div>
-                            </div>
                         </div>
-
-                        <div class="col-lg-4">
-                            <div class="form-group">
+                    </div>
+                    <div class="row">    
+                        <div class="col-lg-10">
+                        <div class="form-group">
                                 <label>Image</label>
                                 <div class="input-group mb-3">
-                                    <img class="pb-1" src="<?=asset('assets/images/unnamed.jpg');?>" id="imgdaily" name="imgdaily" width="100%">
+                                    <img class="pb-1" src="<?=asset('assets/images/unnamed.jpg');?>" id="imgdaily" name="imgdaily" width="70%" height="250px">
                                     <input type="file" name="foto" id="foto" required="">
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                        <div class="form-group">
+                                <label for="content">Content</label> 
+                                <div class="input-group mb-3">
+                                    <textarea class="form-control" name="desc" id="descAnnouncement"  placeholder="Enter your Content..."  rows="4"></textarea>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
                     

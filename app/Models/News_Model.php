@@ -38,7 +38,7 @@
             $simbols        = [''];
             $hash           = rand();
             $title          = $this->ctr->post('title'); 
-            $content        = htmlspecialchars($_POST['content']);
+            $content        = htmlspecialchars($_POST['desc']);
             $category       = $this->ctr->post('category'); 
             $url            = strtolower(str_replace(" ","-",trim(str_replace($filter, $simbols,$title)))).'-'.rand();
             $date           = date('Y-h-d H:i');
@@ -140,7 +140,7 @@
         public function update($id)
 		{
 			$title      	= $this->ctr->post('title');
-			$content 		= htmlspecialchars($_POST['content']);
+			$content 		= htmlspecialchars($_POST['desc']);
 
             if (!empty($_FILES['foto']['name'])) {
 			

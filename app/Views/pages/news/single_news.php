@@ -8,7 +8,7 @@
                     <h2 class=" pb-3" ><?= $data['content']['title'] ?></h2>
                     <img class="card-img-top" src="<?= path("path_portal_News").$data['content']['image'] ?>" alt="Card image cap">
                 
-                        <p class="card-text"><?=   htmlspecialchars_decode($data['content']['content']) ?></p>
+                        <p class="card-text"><?=   htmlspecialchars_decode(str_replace('public/', url().'/public/', $data['content']['content'])) ?></p>
                     </div>
                 </div>
             </div>

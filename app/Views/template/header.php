@@ -22,6 +22,63 @@
   <!-- <link href=" https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet"> -->
   
     <script src="<?= BASEURL ?>/public/assets/vendors/sweetalert/js/sweetalert2.all.min.js"></script>
+    <script src="<?= BASEURL ?>/public/assets/vendors/tinymce/tinymce.min.js"></script>
+    <script>
+
+        tinymce.init({
+            selector: 'textarea#descAnnouncement', 
+            plugins: 'preview importcss searchreplace autolink autosave save directionality visualblocks visualchars image link media codesample table charmap hr nonbreaking toc insertdatetime advlist lists imagetools textpattern noneditable help charmap quickbars',
+            mobile: {
+            plugins: 'preview importcss searchreplace autolink autosave save directionality visualblocks visualchars image link media codesample table charmap hr nonbreaking toc insertdatetime advlist lists textpattern noneditable help charmap quickbars'
+            },
+            menubar: 'file edit view insert format tools table tc help',
+            toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor | charmap |  preview save | insertfile image media link codesample | a11ycheck ltr rtl | showcomments addcomment |',
+            autosave_ask_before_unload: true,
+            autosave_interval: "30s",
+            // autosave_prefix: "{path}{query}-{id}-",
+            autosave_restore_when_empty: false,
+            autosave_retention: "2m",
+            image_advtab: true,
+            width: '1000',
+            height: '300',
+            // without images_upload_url set, Upload tab won't show up
+            // images_upload_url: 'upload.php',
+            
+            // override default upload handler to simulate successful upload
+            images_upload_handler: function (blobInfo, success, failure) {
+                var xhr, formData;
+              
+                xhr = new XMLHttpRequest();
+                xhr.withCredentials = false;
+                xhr.open('POST', '<?=url('add-content-image');?>');
+              
+                xhr.onload = function() {
+                    var json;
+                
+                    if (xhr.status != 200) {
+                        failure('HTTP Error: ' + xhr.status);
+                        return;
+                    }
+                
+                    json = JSON.parse(xhr.responseText);
+                
+                    if (!json || typeof json.location != 'string') {
+                        failure('Invalid JSON: ' + xhr.responseText);
+                        return;
+                    }
+                
+                    success(json.location);
+                };
+              
+                formData = new FormData();
+                formData.append('file', blobInfo.blob(), blobInfo.filename());
+              
+                xhr.send(formData);
+
+
+            },
+        });
+    </script>
 
     <!-- End layout styles -->
     <link rel="shortcut icon" href="<?=asset('assets/images/streammm-universe.png');?>" />

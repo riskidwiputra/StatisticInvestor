@@ -61,6 +61,7 @@
 			if ($data['url'] == $id){
 				if(Session::check('superadmin') || Session::check('admin') == true ){ 
 					$data['content'] = $this->model('News_Model')->selectUpdate($id);
+					// echo $data['content']['content'];die;
 					$this->view('template/header');
 					$this->view('pages/news/update_news',$data);
 					$this->view('template/footer');	
@@ -167,14 +168,53 @@
 				exit;
             }
 		}
-		public function Upload($id)
+		public function Upload()
 		{
-			// if (Session::check('portal') == true ) {
-			// 	Session::unset('portal');
-			// }
-			// $dataportal = $_GET['data2'];
-			// Session::set('portal', $dataportal);  
-			echo $id;
+					// Images upload path 
+				$folder  = paths('path_portal_News'); 
+
+				reset($_FILES);
+				$temp = current($_FILES);
+				if(is_uploaded_file($temp['tmp_name'])){
+
+					// Sanitize input
+					if(preg_match("/([^\w\s\d\-_~,;:\[\]\(\).])|([\.]{2,})/", $temp['name'])){
+						header("HTTP/1.1 400 Invalid file name.");
+						return;
+					}
+
+					// Verify extension
+					if(!in_array(strtolower(pathinfo($temp['name'], PATHINFO_EXTENSION)), array("gif", "jpg", "png"))){
+						header("HTTP/1.1 400 Invalid extension.");
+						return;
+					}
+
+					$ekstensiGambarValid = ['jpg','jpeg','png','gif'];
+					$ekstensiGambar = explode('.', $temp['name']);
+					$ekstensiGambar = strtolower(end($ekstensiGambar));
+
+					$namaFileBaru = uniqid();
+					$namaFileBaru .= '.';
+					$namaFileBaru .= $ekstensiGambar;
+
+					// Accept upload if there was no origin, or if it is an accepted origin
+					$filetowrite = $folder . $namaFileBaru;
+					move_uploaded_file($temp['tmp_name'], $filetowrite);
+
+
+					// format image SRC data mime base64
+					$imageData = base64_encode(file_get_contents($filetowrite));
+					$src = 'data:'.mime_content_type($filetowrite).';base64,'.$imageData;
+
+					// echo json_encode(['location' => ur]);
+					// Respond to the successful upload with JSON.
+					// echo json_encode(array('location' => $src));
+					// TRUE
+					echo json_encode(array('location' => url($filetowrite) ));
+				} else {
+					// Notify editor that the upload failed
+					header("HTTP/1.1 500 Server Error");
+				}
 		}
 		public function Update($id)
         {

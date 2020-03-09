@@ -56,6 +56,8 @@
 
 	Route::post('/insert-news', 					'NewsController@Insert');
 	Route::post('/update-news/{id}', 				'NewsController@Update');
+	Route::post('/add-content-image', 				'NewsController@Upload');
+
 
 	// Report
 	Route::get('/report', 							'ReportController@Report');
