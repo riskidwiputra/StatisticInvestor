@@ -30,7 +30,7 @@
                         <div class="row mt-3">
                             <div class="col-md-3">
                                 <a href="<?= url('news/').$rows['url']; ?>">
-                                    <img class="align-self-start" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:200px; height:100px;">
+                                    <img class="align-self-start" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:100%; height:100px;">
                                 </a>
                             </div>
                             <div class="col-md-9 ">
@@ -91,7 +91,7 @@
                                 }else{
                                 $link_next = ($data['page-daily'] < $data['jumlahHalaman'])? $data['page-daily'] + 1 : $data['jumlahHalaman'];
                                 ?>
-                                <li class="page-item"><a class="page-link" href="<?= BASEURL ?>/news-daily/<?= $link_next ?>""><i class="fa fa-angle-right"></i></a></li>
+                                <li class="page-item"><a class="page-link" href="<?= BASEURL ?>/news-daily/<?= $link_next ?>"><i class="fa fa-angle-right"></i></a></li>
                                 <?php
                                 }
                                 }else{?>
