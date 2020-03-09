@@ -24,27 +24,31 @@
                 <form action="<?= BASEURL ?>/update-news/<?= $data['content']['id_news'] ?>" method="post" enctype="multipart/form-data">
 
                     <div class="row">
-                    
-                        <div class="col-lg-8">
+                        <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="title">Title</label> 
                                 <div class="input-group mb-3">
                                     <input type="text" name="title" class="form-control" value="<?= $data['content']['title'] ?>" required="">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="content">Content</label> 
-                                <div class="input-group mb-3"><textarea class="form-control" name="desc" id="descAnnouncement" rows="4"><?=str_replace('public/', url().'/public/', $data['content']['content']);?></textarea>
-                                </div>
-                            </div>
-                        </div>
-
+                        </div>   
+                    </div>   
+                    <div class="row">
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label>Image</label>
                                 <div class="input-group mb-3">
                                     <img class="pb-1" src="<?= path("path_portal_News").$data['content']['image'] ?>" id="imgdaily" name="imgdaily" width="300px" height="200px">
                                     <input type="file" name="foto" id="foto" >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="content">Content</label> 
+                                <div class="input-group mb-3"><textarea class="form-control" name="desc" id="descAnnouncement" rows="4"><?=str_replace('public/', url().'/public/', $data['content']['content']);?></textarea>
                                 </div>
                             </div>
                         </div>
