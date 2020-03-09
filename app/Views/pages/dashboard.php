@@ -106,17 +106,18 @@
                         <h4 class="card-title">Daily</h4>
                         <?php if($data['daily']){ ?>
                         <?php foreach ($data['daily'] as $rows) { ?>
-                          <div class="row mt-3">
-                            <div class="col-md-3">
+                          <div class="row mt-4">
+                            <div class="col-md-2">
                               <a href="<?= url('news/').$rows['url']; ?>">
-                              <img class="" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:100%; height:100px;">
+                              <!-- <img class="" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:80%; height:100px;"> -->
+                              <img class="" src="<?=asset('assets/images/1.jpg');?>" alt="Generic placeholder image" style="width:80%; height:100px;">
                               </a>
                             </div>
-                            <div class="col-md-9 ">
+                            <div class="col-md-10 ">
                                 <a href="<?= url('news/').$rows['url']; ?>">
-                                <h5><?= strtoupper($rows['title']) ?>
+                                <h4><?= strtoupper($rows['title']) ?>
                                 </a>
-                                </h5>
+                                </h4>
                                 
                                 <p style="margin-top:-15px;" >
                                 <?php  
@@ -157,7 +158,7 @@
                                 }else{
                                 $link_next = ($data['page-daily'] < $data['jumlahHalaman'])? $data['page-daily'] + 1 : $data['jumlahHalaman'];
                                 ?>
-                                <li class="page-item"><a class="page-link" href="<?= BASEURL ?>/news-daily/<?= $link_next ?>""><i class="fa fa-angle-right"></i></a></li>
+                                <li class="page-item"><a class="page-link" href="<?= BASEURL ?>/news-daily/<?= $link_next ?>"><i class="fa fa-angle-right"></i></a></li>
                                 <?php
                                 }
                                 }else{?>
@@ -196,12 +197,13 @@
                         <?php if($data['monthly']){ ?>
                         <?php foreach ($data['monthly'] as $rows) { ?>
                           <div class="row  mt-3">
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                               <a href="<?= url('news/').$rows['url']; ?>">
-                              <img class="" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:100%; height:100px;">
+                              <!-- <img class="" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:80%; height:100px;"> -->
+                              <img class="" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:80%; height:100px;">
                               </a>
                             </div>
-                            <div class="col-md-9 ">
+                            <div class="col-md-10 ">
                                 <a href="<?= url('news/').$rows['url']; ?>">
                                 <h5><?= strtoupper($rows['title']) ?>
                                 </a>
@@ -246,7 +248,7 @@
                                 }else{
                                 $link_next = ($data['page-monthly'] < $data['jumlahHalaman'])? $data['page-monthly'] + 1 : $data['jumlahHalaman'];
                                 ?>
-                                <li class="page-item"><a class="page-link" href="<?= BASEURL ?>/news-monthly/<?= $link_next ?>""><i class="fa fa-angle-right"></i></a></li>
+                                <li class="page-item"><a class="page-link" href="<?= BASEURL ?>/news-monthly/<?= $link_next ?>"><i class="fa fa-angle-right"></i></a></li>
                                 <?php
                                 }
                                 }else{?>
