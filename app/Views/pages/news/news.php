@@ -53,11 +53,12 @@
                                     </span>
                                 <?php } ?>
                                 </h5>
-                                <p style="margin-top:-15px;">
+                                <p style="margin-top:-5;">
+
                                 <?php  
                                 $text = htmlspecialchars_decode($rows['content']);
                                 if ( str_word_count($rows['content']) > 60 ){
-                                echo  substr($text,0,250)." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
+                                echo  substr($rows['content'],0,250)." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
                                 } else {
                                     echo $text."... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>";
                                 }?>

@@ -111,7 +111,7 @@
             $filename    = $id;
             $sql = $this->db->table('report')->where('id_report', $id);
             if ($sql == false) {
-                Flasher::setFlashSweet('Failed','Oops! File - not found !!!!','error'); 
+                Flasher::setFlashSweet('Failed','Data Not Available at the Moment','error'); 
                 return false;
             }
             $back_dir    = paths('path_portal_Report'); 

@@ -52,7 +52,7 @@
 									$value = encrypt($dataUsers['id_investor']);		
 
 									if($check) {        
-									setcookie("cookielogin", $value, $time + 3600 * 24 *30);
+									setcookie("auth", $value, $time + 3600 * 24 *30);
 									setcookie("cookieUsername", $email, $time + 3600 * 24 *30);
 									}
 								Session::unset();
@@ -79,7 +79,7 @@
 									$value = encrypt($dataUsers['id_investor']);		
 
 									if($check) {        
-									setcookie("cookielogin", $value, $time + 3600 * 24 *30);
+									setcookie("auth", $value, $time + 3600 * 24 *30);
 									setcookie("cookieUsername", $email, $time + 3600 * 24 *30);
 									}
 								
@@ -104,14 +104,7 @@
 							$dataAdmin = $this->db->single();  
 							if ($dataAdmin == true) {
 								if (password_verify($password, $dataAdmin['password']) == true) {
-									$time = time();
-									$value = encrypt($dataAdmin['id_admin']);		
-
-									if($check) {        
-									setcookie("cookielogin", $value, $time + 3600 * 24 *30);
-									setcookie("cookieUsername", $email, $time + 3600 * 24 *30);
-									}
-								
+					
 								Session::unset();
 								Session::set('admin',$dataAdmin['id_admin']);  
 									
@@ -129,13 +122,6 @@
 							$dataSuperAdmin = $this->db->single();  
 							if ($dataSuperAdmin == true) {
 								if (password_verify($password, $dataSuperAdmin['password']) == true) {
-									$time = time();
-									$value = encrypt($dataSuperAdmin['id_admin']);		
-
-									if($check) {        
-									setcookie("cookielogin", $value, $time + 3600 * 24 *30);
-									setcookie("cookieUsername", $email, $time + 3600 * 24 *30);
-									}
 								Session::unset();
 								Session::set('superadmin',$dataSuperAdmin['id_admin']);  
 									
@@ -158,13 +144,6 @@
 							if ($dataAdmin == true) {
 								if (password_verify($password, $dataAdmin['password']) == true) {
 							
-									$time = time();
-									$value = encrypt($dataAdmin['id_admin']);		
-
-									if($check) {        
-									setcookie("cookielogin", $value, $time + 3600 * 24 *30);
-									setcookie("cookieUsername", $email, $time + 3600 * 24 *30);
-									}
 									Session::unset();
 									Session::set('admin',$dataAdmin['id_admin']);  
 										
@@ -185,13 +164,6 @@
 							if ($dataSuperAdmin == true) {
 							
 								if (password_verify($password, $dataSuperAdmin['password']) == true) {
-									$time = time();
-									$value = encrypt($dataSuperAdmin['id_admin']);		
-
-									if($check) {        
-									setcookie("cookielogin", $value, $time + 3600 * 24 *30);
-									setcookie("cookieUsername", $email, $time + 3600 * 24 *30);
-									}
 								Session::unset();
 								Session::set('superadmin',$dataSuperAdmin['id_admin']);  
 									

@@ -94,10 +94,10 @@
                 "name_table" => "News",
                 "id"		 => $hash,
                 "activity" 	 => "INSERTED",
-                "keterangan" => "MENAMBAH ". strtoupper($sql['category'])." NEWS ",
+                "keterangan" => 'MENAMBAH NEWS <b>"'.strtoupper($title).'"</b> DI '. strtoupper($category) ,
                 "date"		 => date("Y-m-d H:i:s")
             ];
-    
+
             $activity = $this->db->table('history_access_logs')->insert($dataActivity);
             if ($activity == false) {
                 Flasher::setFlashSweet('Failed','Data activity_logs Gagal Di Input','error'); 
@@ -124,7 +124,7 @@
             "name_table" => "News",
             "id"		 => $id,
             "activity" 	 => "Deleted",
-            "keterangan" => "MENGHAPUS ". strtoupper($sql['category'])." NEWS ",
+            "keterangan" => 'MENGHAPUS NEWS <b>"'.strtoupper($sql["title"]).'"</b> DI '. strtoupper($sql["category"]),
             "date"		 => date("Y-m-d H:i:s")
         ];
 
@@ -192,11 +192,13 @@
                     'content' 		    => $content
                     ];
             } 
-    
+  
                 $where = [
                 'id_news' => $id
                 ];	
+            
                 $sql = $this->db->table('news')->selectWhere($where);
+                
 
         
                 if(Session::check('superadmin') == true) {
@@ -209,10 +211,10 @@
                         "name_table" => "news",
                         "id"		 => $id,
                         "activity" 	 => "UPDATED",
-                        "keterangan" => "MENGUBAH ". strtoupper($sql['category'])." NEWS ",
+                        "keterangan" => 'MENGUBAH NEWS <b>"'.strtoupper($sql["title"]).'"</b> DI '. strtoupper($sql["category"]),
                         "date"		 => date("Y-m-d H:i:s")
                     ];
-                
+                    
                 $activity = $this->db->table('history_access_logs')->insert($dataActivity);
                 if ($activity == false) {
                     Flasher::setFlashSweet('Failed','Data activity_logs Gagal Di Input','error'); 

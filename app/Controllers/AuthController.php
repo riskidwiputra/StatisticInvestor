@@ -6,8 +6,8 @@
 		{	
 			if(Session::check('users') || Session::check('admin')  || Session::check('superadmin') == true ){ 
 			redirect('/');
-			}else if ($_COOKIE['cookielogin'] || $_COOKIE['cookieUsername'] == true ){
-				$validasi = $this->is_Cookie($_COOKIE['cookieUsername'] , $_COOKIE['cookielogin']);
+			}else if ($_COOKIE['auth'] || $_COOKIE['cookieUsername'] == true ){
+				$validasi = $this->is_Cookie($_COOKIE['cookieUsername'] , $_COOKIE['auth']);
 				if ($validasi == true) {
 					redirect('/');
 				}else{
@@ -22,8 +22,8 @@
 		{   
 			if(Session::check('users') || Session::check('admin') || Session::check('superadmin') == true ){ 
 				redirect('/');
-			}else if ($_COOKIE['cookielogin'] || $_COOKIE['cookieUsername'] == true ){
-				$validasi = $this->is_Cookie($_COOKIE['cookieUsername'] , $_COOKIE['cookielogin']);
+			}else if ($_COOKIE['auth'] || $_COOKIE['cookieUsername'] == true ){
+				$validasi = $this->is_Cookie($_COOKIE['cookieUsername'] , $_COOKIE['auth']);
 				if ($validasi == true) {
 					redirect('/');
 				}else{
@@ -45,9 +45,9 @@
 		public function Logout()
 		{
 			Session::unset();
-			if(isset($_COOKIE['cookielogin']))      
+			if(isset($_COOKIE['auth']))      
 			{
-				setcookie("cookielogin","", 0);
+				setcookie("auth","", 0);
 				setcookie("cookieUsername","",  time() - 3600 * 24 *30);
 			}
 			redirect('/');
@@ -88,8 +88,8 @@
 				$this->view('template/header');
                 $this->view('users/history_transfer/history_transfer',$data);
 				$this->view('template/footer');
-			}else if ($_COOKIE['cookielogin'] == true  ){
-				$id_users =  decrypt($_COOKIE['cookielogin']);
+			}else if ($_COOKIE['auth'] == true  ){
+				$id_users =  decrypt($_COOKIE['auth']);
 				$data['pengirim'] = $this->db->table('investor')->where('id_investor', $id_users);
 				if ($data['pengirim'] == true) {
 					$data['content'] = $this->db->table('history_transfer')->whereAll('id_pengirim', $data['pengirim']['username']);

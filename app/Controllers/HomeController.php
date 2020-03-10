@@ -45,8 +45,8 @@
 			
 				// 	echo '{name:"'.$rows['nama'].'",y: '.$rows['persen'].',drilldown:"Chrome"},';
 				//  
-			}else if ($_COOKIE['cookielogin'] || $_COOKIE['cookieUsername'] == true ){
-				$validasi = $this->is_Cookie($_COOKIE['cookieUsername'] , $_COOKIE['cookielogin']);
+			}else if ($_COOKIE['auth'] || $_COOKIE['cookieUsername'] == true ){
+				$validasi = $this->is_Cookie($_COOKIE['cookieUsername'] , $_COOKIE['auth']);
 				if ($validasi == true) {
 					$data['judul']	 	= 'Portal - dashboard'; 
 				$data['saham'] 		= $this->db->table('saham')->selectSingle(); 

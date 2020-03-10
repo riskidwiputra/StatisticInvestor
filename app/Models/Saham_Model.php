@@ -30,7 +30,7 @@
                 "name_table" => "Saham",
                 "id"		 => $hash,
                 "activity" 	 => "INSERTED",
-                "keterangan" => "MEMBUAT DATA SAHAM",
+                "keterangan" => "MEMBUAT DATA SAHAM <b>'".$name."'</b>",
                 "date"		 => date("Y-m-d H:i:s")
             ];
         
@@ -49,15 +49,17 @@
             $where = [
                 "id_saham"  => $id
             ];
+            $sql = $this->db->table('saham')->selectWhere($where);
             $id_admin 	= Session::get('superadmin');
             $dataActivity = [
                 "id_admin"	 => $id_admin,
                 "name_table" => "Saham",
                 "id"		 => $id,
                 "activity" 	 => "UPDATED",
-                "keterangan" => "MENGUBAH DATA SAHAM",
+                "keterangan" => "MENGUBAH DATA SAHAM <b>'".strtoupper($sql["name_saham"])."'</b>",
                 "date"		 => date("Y-m-d H:i:s")
             ];
+            $activity = $this->db->table('history_access_logs')->insert($dataActivity);
             return $this->db->table('saham')->update($data,$where);
         }
     }
