@@ -162,7 +162,7 @@
                                 "name_table" => "investor",
                                 "id"		 => $buatkode,
                                 "activity" 	 => "INSERTED",
-                                "keterangan" => "MENAMBAHKAN AKUN ".strtoupper($username)." / INVESTOR BARU",
+                                "keterangan" => "MENAMBAHKAN AKUN <b>".strtoupper($username)."</b> / INVESTOR BARU",
                                 "date"		 => date("Y-m-d H:i:s")
                             ];
                         
@@ -195,7 +195,7 @@
             "name_table" => "investor",
             "id"		 => $id,
             "activity" 	 => "Deleted",
-            "keterangan" => "MENGHAPUS AKUN ".strtoupper($sql['username'])." / INVESTOR BARU",
+            "keterangan" => "MENGHAPUS AKUN <b>".strtoupper($sql['username'])."</b> / INVESTOR BARU",
             "date"		 => date("Y-m-d H:i:s")
         ];
 
@@ -380,7 +380,7 @@
                         "name_table" => "investor",
                         "id"		 => $id,
                         "activity" 	 => "UPDATED",
-                        "keterangan" => "MENGUBAH AKUN INVESTOR ".strtoupper($sql['username']),
+                        "keterangan" => "MENGUBAH AKUN INVESTOR <b>".strtoupper($sql['username'])."</b>",
                         "date"		 => date("Y-m-d H:i:s")
                     ];
                 

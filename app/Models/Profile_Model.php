@@ -84,7 +84,7 @@
                         "name_table" => "news",
                         "id"		 => $id,
                         "activity" 	 => "UPDATED",
-                        "keterangan" => "MENGUBAH DATA ". strtoupper($sql['username'])." DI ADMIN ",
+                        "keterangan" => "MENGUBAH DATA <b>". strtoupper($sql['username'])."</b> DI ADMIN ",
                         "date"		 => date("Y-m-d H:i:s")
                     ];
                 

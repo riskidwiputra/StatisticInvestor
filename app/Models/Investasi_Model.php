@@ -33,7 +33,7 @@ class Investasi_Model extends Model
 			"name_table" => "investasi",
 			"id"		 => $hash,
 			"activity" 	 => "INSERTED",
-			"keterangan" => "INVESTOR ".strtoupper($username). " MEMBELI ".number_format($lembar_saham,0,',','.')." LEMBAR SAHAM ",
+			"keterangan" => "INVESTOR <b>".strtoupper($username). "</b> MEMBELI ".number_format($lembar_saham,0,',','.')." LEMBAR SAHAM ",
 			"date"		 => date("Y-m-d H:i:s")
 		];
 		$activity = $this->db->table('history_access_logs')->insert($dataActivity);
@@ -107,7 +107,7 @@ class Investasi_Model extends Model
 			"name_table" => "investasi",
 			"id"		 => $hash,
 			"activity" 	 => "Updated",
-			"keterangan" => "MENTRANSFER SAHAM DARI ".strtoupper($username_pengirim)." DAN  MENAMBAH DATA BARU INVESTASI",
+			"keterangan" => "MENTRANSFER SAHAM DARI <b>".strtoupper($username_pengirim)."</b>",
 			"date"		 => date("Y-m-d H:i:s")
 		];
 	
@@ -188,7 +188,7 @@ class Investasi_Model extends Model
 			"name_table" => "investasi",
 			"id"		 => $hash,
 			"activity" 	 => "Updated",
-			"keterangan" => "MENTRANFER SAHAM DARI INVESTOR ".strtoupper($username_pengirim)." KE INVESTOR ".strtoupper($username_penerima),
+			"keterangan" => "MENTRANFER SAHAM DARI INVESTOR <b>".strtoupper($username_pengirim)."</b> KE INVESTOR <b> ".strtoupper($username_penerima)."</b>",
 			"date"		 => date("Y-m-d H:i:s")
 		];
 		$activity = $this->db->table('history_access_logs')->insert($dataActivity);

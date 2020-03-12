@@ -97,7 +97,7 @@ class Datamanagement_Model extends Model
                             "name_table" => "admin",
                             "id"		 => $buatkode,
                             "activity" 	 => "INSERTED",
-                            "keterangan" => "MENAMBAHKAN AKUN ".strtoupper($username)." / ADMIN BARU",
+                            "keterangan" => "MENAMBAHKAN AKUN <b>".strtoupper($username)."</b> / ADMIN BARU",
                             "date"		 => date("Y-m-d H:i:s")
                         ];
                 

@@ -109,8 +109,7 @@
                           <div class="row mt-4">
                             <div class="col-md-2">
                               <a href="<?= url('news/').$rows['url']; ?>">
-                              <!-- <img class="" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:80%; height:100px;"> -->
-                              <img class="" src="<?=asset('assets/images/1.jpg');?>" alt="Generic placeholder image" style="width:80%; height:100px;">
+                              <img class="" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:80%; height:100px;">
                               </a>
                             </div>
                             <div class="col-md-10 ">
