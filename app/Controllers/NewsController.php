@@ -8,7 +8,7 @@
 			if(Session::check('superadmin') || Session::check('admin') == true ){ 
 				// $data['judul'] = 'Kategori'; 
 				$data['daily'] 				= $this->model('News_Model')->selectdaily();
-				$data['monthly']  			= $this->db->query("SELECT * FROM news WHERE category = 'monthly' ORDER BY date DESC"); 
+				$data['monthly']  			= $this->db->query("SELECT * FROM news WHERE category = 'monthly' ORDER BY date_inserted DESC"); 
 				$data['monthly']  			= $this->db->resultSet();
 				$jumlahDataDaily 			= $this->db->query("SELECT COUNT(*) AS jumlah FROM news WHERE category = 'daily'");
 				$jumlahDataDaily 			= $this->db->single();
@@ -96,7 +96,7 @@
 		public function Pagination_Daily($id)
 		{
 			$data['daily'] 			= $this->model('News_Model')->selectpagination($id);
-			$data['monthly']		= $this->db->query("SELECT * FROM news WHERE category = 'monthly' ORDER BY date DESC LIMIT 0, 4"); 
+			$data['monthly']		= $this->db->query("SELECT * FROM news WHERE category = 'monthly' ORDER BY date_inserted DESC LIMIT 0, 4"); 
 			$data['monthly']  		= $this->db->resultSet();
 			$jumlahDatadaily 			= $this->db->query("SELECT COUNT(*) AS jumlah FROM news WHERE category = 'daily'");
 			$jumlahDatadaily 			= $this->db->single();
@@ -121,7 +121,7 @@
 		public function Pagination_Monthly($id)
 		{
 			$data['monthly'] 		= $this->model('News_Model')->selectpagination2($id);
-			$data['daily']		    = $this->db->query("SELECT * FROM news WHERE category = 'daily' ORDER BY date DESC LIMIT 0, 4"); 
+			$data['daily']		    = $this->db->query("SELECT * FROM news WHERE category = 'daily' ORDER BY date_inserted DESC LIMIT 0, 4"); 
 			$data['daily']  		= $this->db->resultSet();
 			$jumlahData 			= $this->db->query("SELECT COUNT(*) AS jumlah FROM news WHERE category = 'monthly'");
 			$jumlahData 			= $this->db->single();

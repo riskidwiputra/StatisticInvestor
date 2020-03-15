@@ -19,17 +19,16 @@
 				}
 				$data['saldo'] = $jumlah * $data['saham']['harga_persaham'];
 				$data['admin']	=$this->db->table('admin')->where('id_admin', Session::get('admin'));	
-				// $data['report']	= $this->db->table('report')->selectAll();
-				// // var_dump($data['report']);
-				// foreach ($data['report'] as $ros) {
-				// 	var_dump(date("Y-m",strtotime($ros['date'])));die;
-				// }
+				$data['report']	= $this->db->table('report')->selectAll();
+				foreach ($data['report'] as $ros) {
+					var_dump(date("Y-m",strtotime($ros['date'])));die;
+				}
 				$hari = date("Y-m");
 				$data['report'] = $this->db->query("SELECT * FROM report WHERE date LIKE '$hari%'");
 				$data['report'] = $this->db->single();
 				$data['investasi'] = $this->db->table('investasi')->selectAll();
 				$data['daily'] 				= $this->model('News_Model')->selectdaily();
-				$data['monthly']  			= $this->db->query("SELECT * FROM news WHERE category = 'monthly' ORDER BY date DESC"); 
+				$data['monthly']  			= $this->db->query("SELECT * FROM news WHERE category = 'monthly' ORDER BY date_inserted DESC"); 
 				$data['monthly']  			= $this->db->resultSet();
 				$jumlahDataDaily 			= $this->db->query("SELECT COUNT(*) AS jumlah FROM news WHERE category = 'daily'");
 				$jumlahDataDaily 			= $this->db->single();
@@ -43,7 +42,7 @@
 				$this->view('pages/dashboard', $data);
 				$this->view('template/footer');			
 			
-				// 	echo '{name:"'.$rows['nama'].'",y: '.$rows['persen'].',drilldown:"Chrome"},';
+				// // 	echo '{name:"'.$rows['nama'].'",y: '.$rows['persen'].',drilldown:"Chrome"},';
 				//  
 			}else if ($_COOKIE['auth'] || $_COOKIE['cookieUsername'] == true ){
 				$validasi = $this->is_Cookie($_COOKIE['cookieUsername'] , $_COOKIE['auth']);
@@ -61,17 +60,17 @@
 				}
 				$data['saldo'] = $jumlah * $data['saham']['harga_persaham'];
 				$data['admin']	=$this->db->table('admin')->where('id_admin', Session::get('admin'));	
-				// $data['report']	= $this->db->table('report')->selectAll();
-				// // var_dump($data['report']);
-				// foreach ($data['report'] as $ros) {
-				// 	var_dump(date("Y-m",strtotime($ros['date'])));die;
-				// }
+				$data['report']	= $this->db->table('report')->selectAll();
+				// var_dump($data['report']);
+				foreach ($data['report'] as $ros) {
+					var_dump(date("Y-m",strtotime($ros['date'])));die;
+				}
 				$hari = date("Y-m");
 				$data['report'] = $this->db->query("SELECT * FROM report WHERE date LIKE '$hari%'");
 				$data['report'] = $this->db->single();
 				$data['investasi'] = $this->db->table('investasi')->selectAll();
 				$data['daily'] 				= $this->model('News_Model')->selectdaily();
-				$data['monthly']  			= $this->db->query("SELECT * FROM news WHERE category = 'monthly' ORDER BY date DESC"); 
+				$data['monthly']  			= $this->db->query("SELECT * FROM news WHERE category = 'monthly' ORDER BY date_inserted DESC"); 
 				$data['monthly']  			= $this->db->resultSet();
 				$jumlahDataDaily 			= $this->db->query("SELECT COUNT(*) AS jumlah FROM news WHERE category = 'daily'");
 				$jumlahDataDaily 			= $this->db->single();
@@ -92,8 +91,5 @@
 				exit;
 			}   
 		} 
-		public function tes()
-		{
-			var_dump("berhasisl");
-		}
+		
 	}

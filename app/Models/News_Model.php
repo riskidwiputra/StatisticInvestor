@@ -4,7 +4,7 @@
 	{ 
         public function selectdaily()
         {
-            $select = $this->db->query("SELECT * FROM news WHERE category = 'daily' ORDER BY date DESC LIMIT 0, 4"); 
+            $select = $this->db->query("SELECT * FROM news WHERE category = 'daily' ORDER BY date_inserted DESC LIMIT 0, 4"); 
             $select = $this->db->resultSet();
 
 			return $this->db->resultSet();
@@ -41,7 +41,7 @@
             $content        = htmlspecialchars($_POST['desc']);
             $category       = $this->ctr->post('category'); 
             $url            = strtolower(str_replace(" ","-",trim(str_replace($filter, $simbols,$title)))).'-'.rand();
-            $date           = date('Y-h-d H:i');
+            $date           = date('Y-m-d H:i');
             $gambar         = $_FILES['foto']['name'];
             $source         = $_FILES['foto']['tmp_name'];
             
@@ -71,13 +71,13 @@
         
             $data =
             [   
-            'id_news'   => $hash,
-            'title'     => $title,
-            'content'   => $content,
-            'image'     => $namaFileBaru,
-            'category'  => $category,
-            'url'       => $url,
-            'date'      => $date
+            'id_news'       => $hash,
+            'title'         => $title,
+            'content'       => $content,
+            'image'         => $namaFileBaru,
+            'category'      => $category,
+            'url'           => $url,
+            'date_inserted' => $date
             ];		
             $dataId = [
                 'id_news' => $id
@@ -139,8 +139,10 @@
         }
         public function update($id)
 		{
-			$title      	= $this->ctr->post('title');
-			$content 		= htmlspecialchars($_POST['desc']);
+            $title      	= $this->ctr->post('title');
+            $isi            = str_replace('../','',$_POST['desc']);
+            $content 		= htmlspecialchars($isi);
+        
 
             if (!empty($_FILES['foto']['name'])) {
 			

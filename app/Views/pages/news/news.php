@@ -33,10 +33,11 @@
                                     <img class="align-self-start" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:100%; height:100px;">
                                 </a>
                             </div>
+                            
                             <div class="col-md-9 ">
                                 <a href="<?= url('news/').$rows['url']; ?>">
                                 <h5><?= strtoupper($rows['title']) ?>
-                                </a>
+                                </a> 
                                 <?php if (Session::check('admin') == true || Session::check('superadmin') == true) { ?>
                                     <span style="text-align: right;" class="align-right text-right ml-3">       
                                         <a href="<?= url('update-news/').$rows['url']; ?>">
@@ -52,18 +53,31 @@
                                         </a> 
                                     </span>
                                 <?php } ?>
+                                
                                 </h5>
                                 <p style="margin-top:-5;">
-
                                 <?php  
-                                $text = htmlspecialchars_decode($rows['content']);
-                                if ( str_word_count($rows['content']) > 60 ){
-                                echo  substr($rows['content'],0,250)." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
-                                } else {
-                                    echo $text."... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>";
-                                }?>
-                                </p>
-                            </div> 
+                                 $text = htmlspecialchars_decode($rows['content']);
+                                
+
+                                 // echo $text." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
+                                 $tes =filter_var($text, FILTER_SANITIZE_STRING);
+                                 $text2= substr($tes,0,250);
+                                 //  $text = htmlspecialchars_decode($rows['content']);
+                                 echo $text2." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
+                                
+                                // $text2= substr($rows['content'],0,250);
+
+                                // $text = htmlspecialchars_decode($text2);
+                                // echo $text." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
+                                // if ( str_word_count($rows['content']) > 60 ){
+                                // echo  substr($text,0,250)." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
+                                // } else {
+                                //     echo $text."... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>";
+                                // }
+                                ?> 
+                                </p> 
+                            </div>       
                         </div>
                         <?php } ?>
                         <nav aria-label="Page navigation example">
@@ -159,14 +173,23 @@
                                     </span>
                                 <?php } ?>
                                 </h5>
-                                <p style="margin-top:-15px;">
+                                <p style="margin-top:-5px;">
                                 <?php  
                                 $text = htmlspecialchars_decode($rows['content']);
-                                if ( str_word_count($rows['content']) > 60 ){
-                                echo  substr($text,0,250)." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
-                                } else {
-                                    echo $text."... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>";
-                                }?>
+                                
+
+                                // echo $text." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
+                                $tes =filter_var($text, FILTER_SANITIZE_STRING);
+                                $text2= substr($tes,0,250);
+                                //  $text = htmlspecialchars_decode($rows['content']);
+                                echo $text2." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
+                                // echo $text." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
+                                // if ( str_word_count($rows['content']) > 60 ){
+                                // echo  substr($text,0,250)." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
+                                // } else {
+                                //     echo $text."... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>";
+                                // }
+                                ?>
                                 </p>
                             </div> 
                         </div>

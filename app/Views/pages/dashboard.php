@@ -118,14 +118,23 @@
                                 </a>
                                 </h4>
                                 
-                                <p style="margin-top:-15px;" >
+                                <p style="margin-top:-5px;" >
                                 <?php  
-                                $text = htmlspecialchars_decode($rows['content']);
-                                if ( str_word_count($rows['content']) > 60 ){
-                                echo  substr($text,0,250)." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
-                                } else {
-                                echo $text."... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>";
-                                }?>
+                                 $text = htmlspecialchars_decode($rows['content']);
+                                
+
+                                 // echo $text." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
+                                 $tes =filter_var($text, FILTER_SANITIZE_STRING);
+                                 $text2= substr($tes,0,250);
+                                 //  $text = htmlspecialchars_decode($rows['content']);
+                                 echo $text2." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
+                                
+                                // $text = htmlspecialchars_decode($rows['content']);
+                                // if ( str_word_count($rows['content']) > 60 ){
+                                // echo  substr($text,0,250)." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
+                                // } else {
+                                // echo $text."... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>";
+                                // }?>
                                 </p>
                             
                             </div>
@@ -208,14 +217,24 @@
                                 </a>
                                 </h5>
                                 
-                                <p style="margin-top:-15px;" >
+                                <p style="margin-top:-5px;" >
                                 <?php  
-                                $text = htmlspecialchars_decode($rows['content']);
-                                if ( str_word_count($rows['content']) > 60 ){
-                                echo  substr($text,0,250)." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
-                                } else {
-                                echo $text."... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>";
-                                }?>
+                                 $text = htmlspecialchars_decode($rows['content']);
+                                
+
+                                 // echo $text." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
+                                 $tes =filter_var($text, FILTER_SANITIZE_STRING);
+                                 $text2= substr($tes,0,250);
+                                 //  $text = htmlspecialchars_decode($rows['content']);
+                                 echo $text2." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
+                                
+                                // $text = htmlspecialchars_decode($rows['content']);
+                                // if ( str_word_count($rows['content']) > 60 ){
+                                // echo  substr($text,0,250)." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
+                                // } else {
+                                // echo $text."... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>";
+                                // }
+                                ?>
                                 </p>
                             
                             </div>
