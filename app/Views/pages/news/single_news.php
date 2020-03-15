@@ -2,7 +2,7 @@
     <div class="content-wrapper">
     <h2 class=" pb-3" style="font-family: fantasy;font-size:80px"><?= $data['content']['title'] ?></h2>
         <div class="row">
-            <div class="col-8 grid-margin">
+            <div class="col-lg-8 grid-margin">
                 <div class="card mb-3">
                 
                     <div class="card-body">
@@ -13,7 +13,7 @@
                 </div>
             </div>
 
-            <div class="col-4 grid-margin">
+            <div class="col-lg-4 grid-margin">
             <div class="page-header">
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
