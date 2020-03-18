@@ -41,7 +41,7 @@
             $content        = htmlspecialchars($_POST['desc']);
             $category       = $this->ctr->post('category'); 
             $url            = strtolower(str_replace(" ","-",trim(str_replace($filter, $simbols,$title)))).'-'.rand();
-            $date           = date('Y-m-d H:i');
+            $date           = date('Y-m-d H:i:s');
             $gambar         = $_FILES['foto']['name'];
             $source         = $_FILES['foto']['tmp_name'];
             
