@@ -21,14 +21,14 @@
 		{	
 			$limit			= 4;
 			$limit_start 	= ($id - 1) * $limit;
-			 $this->db->query("SELECT * FROM news WHERE category = 'daily' ORDER BY id_news DESC LIMIT ".$limit_start.",".$limit);
+			 $this->db->query("SELECT * FROM news WHERE category = 'daily' ORDER BY date_inserted DESC LIMIT ".$limit_start.",".$limit);
 			return $this->db->resultSet();
 		}
         public function selectpagination2($id)
 		{	
 			$limit			= 4;
 			$limit_start 	= ($id - 1) * $limit;
-			$this->db->query("SELECT * FROM news WHERE category = 'monthly' ORDER BY id_news DESC LIMIT ".$limit_start.",".$limit);
+			$this->db->query("SELECT * FROM news WHERE category = 'monthly' ORDER BY date_inserted DESC LIMIT ".$limit_start.",".$limit);
 			return $this->db->resultSet();
 		}
         public function insert()
