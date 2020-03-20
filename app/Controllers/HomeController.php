@@ -20,9 +20,7 @@
 				$data['saldo'] = $jumlah * $data['saham']['harga_persaham'];
 				$data['admin']	=$this->db->table('admin')->where('id_admin', Session::get('admin'));	
 				$data['report']	= $this->db->table('report')->selectAll();
-				foreach ($data['report'] as $ros) {
-					var_dump(date("Y-m",strtotime($ros['date'])));die;
-				}
+				
 				$hari = date("Y-m");
 				$data['report'] = $this->db->query("SELECT * FROM report WHERE date LIKE '$hari%'");
 				$data['report'] = $this->db->single();
@@ -62,9 +60,7 @@
 				$data['admin']	=$this->db->table('admin')->where('id_admin', Session::get('admin'));	
 				$data['report']	= $this->db->table('report')->selectAll();
 				// var_dump($data['report']);
-				foreach ($data['report'] as $ros) {
-					var_dump(date("Y-m",strtotime($ros['date'])));die;
-				}
+				
 				$hari = date("Y-m");
 				$data['report'] = $this->db->query("SELECT * FROM report WHERE date LIKE '$hari%'");
 				$data['report'] = $this->db->single();
