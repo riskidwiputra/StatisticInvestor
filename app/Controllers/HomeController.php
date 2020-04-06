@@ -25,7 +25,7 @@
 				$data['report'] = $this->db->query("SELECT * FROM report WHERE date LIKE '$hari%'");
 				$data['report'] = $this->db->single();
 				$data['investasi'] = $this->db->table('investasi')->selectAll();
-				$data['daily'] 				= $this->model('News_Model')->selectdaily();
+				$data['daily'] 				= $this->model('News_Model')->selectdaily();	
 				$data['monthly']  			= $this->db->query("SELECT * FROM news WHERE category = 'monthly' ORDER BY date_inserted DESC"); 
 				$data['monthly']  			= $this->db->resultSet();
 				$jumlahDataDaily 			= $this->db->query("SELECT COUNT(*) AS jumlah FROM news WHERE category = 'daily'");

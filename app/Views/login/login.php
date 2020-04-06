@@ -16,6 +16,7 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="<?= asset('assets/css/style.css'); ?>">
     <!-- End layout styles -->
+    <link href="<?= BASEURL ?>/public/assets/vendors/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="<?= asset('assets/images/favicon.png');?>"  />
   </head>
   <body>
@@ -90,16 +91,21 @@
                     <div class="form-group">
                     <input type="text" name="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username / Email">
                     </div>
-                    <div class="form-group">
-                    <input type="password" name="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                    <div class="form-group ">
+                    <input type="password" name="password" class="form-control form-control-lg" id="password-field" placeholder="Password">
+
+                    <span style="float:right;margin-top:-33px;margin-right:25px;font-size:18px;" toggle="#password-field" class="toggle-password fas fa-eye"></span>
+
                     </div>
-                    <div class="form-group">
-                      <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" name="rememberMe" id="customCheck">
-                        <label class="custom-control-label" for="customCheck">Remember Me</label>
+
+                  
+                    <div class="form-group ">
+                      <div class="custom-control custom-checkbox small pt-2">
+                        <input type="checkbox" class="custom-control-input " name="rememberMe" id="customCheck">
+                        <label class="custom-control-label  pt-1" for="customCheck">Remember Me</label>
                       </div>
                     </div>
-                    <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium">SIGN IN</button>
+                    <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium">SIGN IN<</button>
                   </form>
                   <!-- <div class="text-center">
                     <a class="small" href="forgot-password.html">Forgot Password?</a>
@@ -125,6 +131,7 @@
       <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
+   
     <!-- plugins:js -->
     <script src="<?= asset('assets/vendors/js/vendor.bundle.base.js'); ?>"></script>
     <!-- endinject -->
@@ -134,6 +141,17 @@
     <script src="<?= asset('assets/js/off-canvas.js'); ?>"></script>
     <script src="<?= asset('assets/js/hoverable-collapse.js'); ?>"></script>
     <script src="<?= asset('assets/js/misc.js'); ?>"></script>
+    <script> 
+     $(".toggle-password").click(function() {
+            $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+            } else {
+                input.attr("type", "password");
+            }
+        }); 
+    </script>
     <!-- endinject -->
   </body>
 </html>

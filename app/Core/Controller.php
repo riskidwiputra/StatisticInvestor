@@ -52,13 +52,6 @@
                 $dataUsers = $this->db->single();
                 if ($dataUsers == true) {
                 $validasi2 = $dataUsers['id_investor'];
-                }else{
-                $dataUsers = $this->db->query('
-                SELECT * FROM admin
-                WHERE username = "'.$username.'" 
-                ');
-                $dataUsers = $this->db->single();
-                $validasi2 = $dataUsers['id_admin'];
                 }
                 $validasi = decrypt($data);
 

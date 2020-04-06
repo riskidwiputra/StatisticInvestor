@@ -55,7 +55,7 @@
                                 <?php } ?>
                                 
                                 </h5>
-                                <p style="margin-top:-5;">S
+                                <p style="margin-top:-5;">
                                 <?php  
                                  $text = htmlspecialchars_decode($rows['content']);
                                 

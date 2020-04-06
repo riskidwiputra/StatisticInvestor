@@ -1,14 +1,27 @@
+<style>
+#deskripsi img {
+    max-width: 100%;
+
+}
+/* Extra small devices (phones, 600px and down) */
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+</style>
 <div class="main-panel ">
     <div class="content-wrapper">
-    <h2 class=" pb-3" style="font-family: fantasy;font-size:80px"><?= $data['content']['title'] ?></h2>
+    
         <div class="row">
             <div class="col-lg-8 grid-margin">
                 <div class="card mb-3">
-                
+       
                     <div class="card-body">
+                    <h1 class="card-title" style="font-family: fantasy; font-size:30px;"><?= $data['content']['title'] ?>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab molestiae similique illum, maxime tempore quas provident ipsa! Necessitatibus recusandae culpa ad vitae iusto quisquam nisi?</h1>
                     <img class="card-img-top" src="<?= path("path_portal_News").$data['content']['image'] ?>" alt="Card image cap">
-                
-                        <p class="card-text"><?=   htmlspecialchars_decode(str_replace('public/', url().'/public/', $data['content']['content'])) ?></p>
+                    <div  id="deskripsi">
+                        <p class="card-text" ><?=   htmlspecialchars_decode(str_replace('public/', url().'/public/', $data['content']['content'])) ?></p>
+                        </div>
                     </div>
                 </div>
             </div>
