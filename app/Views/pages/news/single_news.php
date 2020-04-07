@@ -1,8 +1,69 @@
 <style>
 #deskripsi img {
     max-width: 100%;
-
+    
 }
+@media screen and (max-width: 1400px) {
+    #deskripsi img {
+    height:430px;
+    }
+}
+@media screen and (max-width: 1300px) {
+    #deskripsi img {
+    height:400px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    #deskripsi img {
+    height:370px;
+    }
+}
+@media screen and (max-width: 1100px) {
+    #deskripsi img {
+    height:350px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    #deskripsi img {
+    height:300px;
+    }
+}
+@media screen and (max-width: 900px) {
+    #deskripsi img {
+    height:450px;
+    }
+}
+@media screen and (max-width: 800px) {
+    #deskripsi img {
+    height:400px;
+    }
+}
+@media screen and (max-width: 700px) {
+    #deskripsi img {
+    height:350px;
+    }
+}
+@media screen and (max-width: 600px) {
+    #deskripsi img {
+    height:300px;
+    }
+}
+@media screen and (max-width: 500px) {
+    #deskripsi img {
+    height:250px;
+    }
+}
+@media screen and (max-width: 400px) {
+    #deskripsi img {
+    height:200px;
+    }
+}
+@media screen and (max-width: 360px) {
+    #deskripsi img {
+    height:180px;
+    }
+}
+
 /* Extra small devices (phones, 600px and down) */
 
 
@@ -20,7 +81,7 @@
                     <h1 class="card-title" style="font-family: fantasy; font-size:40px;"><?= $data['content']['title'] ?></h1>
                     <img class="card-img-top" src="<?= path("path_portal_News").$data['content']['image'] ?>" alt="Card image cap">
                     <div  id="deskripsi">
-                        <p class="card-text" ><?=   htmlspecialchars_decode(str_replace('public/', url().'/public/', $data['content']['content'])) ?></p>
+                        <p class="card-text" class="img-responsive card-img-top"><?=   htmlspecialchars_decode(str_replace('public/', url().'/public/', $data['content']['content'])) ?></p>
                         </div>
                     </div>
                 </div>
