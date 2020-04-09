@@ -9,6 +9,31 @@
 				$data['judul']	 	= 'Portal - dashboard'; 
 				$data['saham'] 		= $this->db->table('saham')->selectSingle(); 
 				$data['investor']	= $this->db->table('investor')->where('id_investor', Session::get('users'));
+				$data['valuatif']	= $this->db->query("SELECT * FROM nilai_valuatif ORDER BY DATE_FORMAT(date, '%Y/%m/%d/%H/%i/%s') DESC ");
+				$data['valuatif']	= $this->db->single();
+			
+				$data['grafik_valuatif']	= $this->db->query("SELECT * FROM nilai_valuatif ORDER BY DATE_FORMAT(date, '%Y/%m/%d/%H/%i/%s') ASC ");
+				$data['grafik_valuatif']	= $this->db->resultSet();
+				foreach ($data['grafik_valuatif'] as $rows) {
+					$tahunA[] 	=  date("Y",strtotime($rows['date'])).', ';
+					$bulanA[] 	=  date("m",strtotime($rows['date']))-1;
+					$hariA[]	=  ', '.date("d, H, i , s",strtotime($rows['date']));
+					$datatgl[] 	= date("Y-m-d",strtotime($rows['date']));
+					$dataq[]	= $rows['nilai_valuatif'];
+				}		
+				
+			
+				$data['Jmlh'] = count($data['grafik_valuatif']);
+				for ($i=0; $i < $data['Jmlh'] ; $i++) { 
+					$end2[] = $tahunA[$i].$bulanA[$i].$hariA[$i]; 
+				}
+			
+				$data['nilai_valuatif'] = $dataq;
+				$data['tglUsers'] = $end2;
+				$data['All'] = array_combine($data['tglUsers'],$dataq);
+				
+				
+				
 				$saldo				= $this->db->table('investasi')->whereAll('id_investor', $data['investor']['username']);
 				
 				foreach ($saldo as $row) {

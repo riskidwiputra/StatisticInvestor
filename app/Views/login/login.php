@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="<?= asset('assets/css/style.css'); ?>">
     <!-- End layout styles -->
     <link href="<?= BASEURL ?>/public/assets/vendors/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="<?= asset('assets/images/favicon.png');?>"  />
+    
+    <link rel="shortcut icon" href="<?=asset('assets/images/streammm-universe.png');?>" />
   </head>
   <body>
   <div class="container">

@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="https://code.highcharts.com/css/stocktools/gui.css">
+    <link rel="stylesheet" type="text/css" href="https://code.highcharts.com/css/annotations/popup.css">
 <div class="main-panel ">
           <div class="content-wrapper">
         
@@ -42,6 +44,13 @@
                   
                         </p>
                     </figure>
+                    <br>
+                    <figure class="highcharts-figure">
+                        <div id="container2" class="chart d-none d-lg-block d-xl-block"></div>
+                        <p class="highcharts-description2">
+                  
+                        </p>
+                    </figure>
 
                   </div>
                 </div>
@@ -80,7 +89,7 @@
                     <img src="<?=asset('assets/images/dashboard/circle.svg');?>" class="card-img-absolute" alt="circle-image" />
                     <h4 class="font-weight-normal mb-3">Nilai Valuatif Perusahaan  <i class="mdi mdi-diamond mdi-24px float-right"></i>
                     </h4>
-                    <h2 class="mb-5">IDR 13.4M</h2> 
+                    <h2 class="mb-5"><?= number_format_short($data['valuatif']['nilai_valuatif']) ?></h2> 
                   </div>
                 </div>
               </div>
@@ -330,14 +339,16 @@
             </div>
           </div>
           <!-- content-wrapper ends -->
+<script src="<?= asset('assets/vendors/js/modules/highstock.js') ?>"></script>
+<script src="<?= asset('assets/vendors/js/modules/data.js') ?>"></script>
+<script src="<?= asset('assets/vendors/js/modules/highcharts-3d.js') ?>"></script>
+<script src="<?= asset('assets/vendors/js/modules/drilldown.js') ?>"></script>
+<script src="<?= asset('assets/vendors/js/modules/exporting.js') ?>"></script>
+<script src="<?= asset('assets/vendors/js/modules/export-data.js') ?>"></script>
+<script src="<?= asset('assets/vendors/js/modules/accessibility.js') ?>"></script>
 
-<script src="<?= asset('assets/js/highcharts.js') ?>"></script>
-<script src="https://code.highcharts.com/highcharts-3d.js"></script>
-<script src="https://code.highcharts.com/modules/data.js"></script>
-<script src="https://code.highcharts.com/modules/drilldown.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+ 
+
 <script>
   Highcharts.chart('chartpie', {
     chart: {
@@ -433,4 +444,188 @@ Highcharts.chart('container', {
         }
     ]
 });
+
+
 </script>
+
+
+<script type="text/javascript">
+ var data = [ 
+        <?php for ($i=0; $i < $data['Jmlh'] ; $i++) {  ?>
+        [
+        Date.UTC(<?= $data['tglUsers'][$i] ?>),
+        <?= $data['nilai_valuatif'][$i] ?>
+        ],
+        <?php } ?>
+    ];
+
+// Create the chart
+Highcharts.stockChart('container2', {
+
+rangeSelector: {
+    selected: 5
+},
+
+// title: {
+//     text: 'AAPL Stock Price'
+// },
+
+series: [{
+    name: 'Nilai Valuatif',
+    data: data,
+    type: 'spline',
+    tooltip: {
+        valueDecimals: 2
+    }
+}]
+});
+    // var data = [ 
+    //     <?php for ($i=0; $i < $data['Jmlh'] ; $i++) {  ?>
+    //     [
+    //     Date.UTC(<?= $data['tglUsers'][$i] ?>),
+    //     5000000,
+    //     7500000,
+    //     4000000,
+    //     5500000,
+    //     <?= $data['nilai_valuatif'][$i] ?>
+    //     ],
+    //     <?php } ?>
+    // ];
+
+    //     // var data = [
+            
+    //     //    [
+    //     //       Date.UTC(<?= $data['tglUsers'][1] ?>),
+    //     //         999.12,
+    //     //         188,
+    //     //         186.78,
+    //     //         187.5,
+    //     //         <?= $data['nilai_valuatif'][1] ?>
+    //     //     ],
+    //     //     [
+    //     //         1527773400000,
+    //     //         187.22,
+    //     //         188.23,
+    //     //         186.14,
+    //     //         186.87,
+    //     //         27482800
+    //     //     ],
+    //     //     [
+    //     //         1527859800000,
+    //     //         187.99,
+    //     //         190.26,
+    //     //         187.75,
+    //     //         190.24,
+    //     //         23442500
+    //     //     ],
+    //     //     [
+    //     //         1528119000000,
+    //     //         1,
+    //     //         1193.42,
+    //     //         191.35,
+    //     //         191.83,
+    //     //         26266200
+    //     //     ]
+    //     // ];
+
+
+  
+
+    //         // split the data set into ohlc and volume
+    //         var ohlc = [],
+    //             volume = [],
+    //             dataLength = data.length,
+    //             i = 0;
+
+    //         for (i; i < dataLength; i += 1) {
+    //             ohlc.push([
+    //                 data[i][0], // the date
+    //                 data[i][1], // open
+    //                 data[i][2], // high
+    //                 data[i][3], // low
+    //                 data[i][4] // close
+    //             ]);
+
+    //             volume.push([
+    //                 data[i][0], // the date
+    //                 data[i][5] // the volume
+    //             ]);
+    //         }
+
+    //         Highcharts.stockChart('container2', {
+        
+    //             yAxis: [{
+    //                 labels: {
+    //                     align: 'left'
+    //                 },
+    //                 height: '80%',
+    //                 resize: {
+    //                     enabled: true
+    //                 }
+    //             }, {
+    //                 labels: {
+    //                     align: 'left'
+    //                 },
+    //                 top: '80%',
+    //                 height: '20%',
+    //                 offset: 0
+    //             }],
+    //             tooltip: {
+    //                 shape: 'square',
+    //                 headerShape: 'callout',
+    //                 borderWidth: 0,
+    //                 shadow: false,
+    //                 positioner: function (width, height, point) {
+    //                     var chart = this.chart,
+    //                         position;
+
+    //                     if (point.isHeader) {
+    //                         position = {
+    //                             x: Math.max(
+    //                                 // Left side limit
+    //                                 chart.plotLeft,
+    //                                 Math.min(
+    //                                     point.plotX + chart.plotLeft - width / 2,
+    //                                     // Right side limit
+    //                                     chart.chartWidth - width - chart.marginRight
+    //                                 )
+    //                             ),
+    //                             y: point.plotY
+    //                         };
+    //                     } else {
+    //                         position = {
+    //                             x: point.series.chart.plotLeft,
+    //                             y: point.series.yAxis.top - chart.plotTop
+    //                         };
+    //                     }
+
+    //                     return position;
+    //                 }
+    //             },
+    //             series: [{
+    //                 type: 'ohlc',
+    //                 id: 'aapl-ohlc',
+    //                 name: 'AAPL Stock Price',
+    //                 data: ohlc
+    //             }, {
+    //                 type: 'column',
+    //                 id: 'aapl-volume',
+    //                 name: 'AAPL Volume',
+    //                 data: volume,
+    //                 yAxis: 1
+    //             }],
+    //             responsive: {
+    //                 rules: [{
+    //                     condition: {
+    //                         maxWidth: 800
+    //                     },
+    //                     chartOptions: {
+    //                         rangeSelector: {
+    //                             inputEnabled: false
+    //                         }
+    //                     }
+    //                 }]
+    //             }
+    //         });
+
+    </script>

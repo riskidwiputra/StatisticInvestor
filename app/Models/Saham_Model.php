@@ -35,6 +35,14 @@
             ];
         
             $activity = $this->db->table('history_access_logs')->insert($dataActivity);
+            $data_valuatif = [
+                "id_nilai_valuatif" => uniqid(),
+                "total_saham"       => $total,
+                "harga_saham"       => $price,
+                "date"              => date("Y-m-d H:i:s"),
+                "nilai_valuatif"    => $total * $price 
+            ];
+            $activity = $this->db->table('nilai_valuatif')->insert($data_valuatif);
             return $this->db->rowCount();
         }
         public function edit($id)
@@ -60,6 +68,14 @@
                 "date"		 => date("Y-m-d H:i:s")
             ];
             $activity = $this->db->table('history_access_logs')->insert($dataActivity);
+            $data_valuatif = [
+                "id_nilai_valuatif" => uniqid(),
+                "total_saham"       => $total,
+                "harga_saham"       => $harga,
+                "date"              => date("Y-m-d H:i:s"),
+                "nilai_valuatif"    => $total * $harga 
+            ];
+            $activity = $this->db->table('nilai_valuatif')->insert($data_valuatif);
             return $this->db->table('saham')->update($data,$where);
         }
     }

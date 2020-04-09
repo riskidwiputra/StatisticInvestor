@@ -529,6 +529,31 @@
 		}
 		return $hasil;
 	}
+	function number_format_short( $n, $precision = 1 ) {
+		if($n >= 1000000000000000){
+			// 0.9b-850b
+			$n_format = number_format($n / 1000000000000000, $precision);
+			$suffix = ' Kuadriliun';
+		}else if ($n >= 1000000000000) {
+			// 0.9b-850b
+			$n_format = number_format($n / 1000000000000, $precision);
+			$suffix = ' Triliun';
+		}else if ($n >= 1000000000) {
+			$n_format = number_format($n / 1000000000, $precision);
+			$suffix = ' Milyar';
+		}else if ($n >= 1000000) {
+			$n_format = number_format($n / 1000000, $precision);
+			$suffix = ' Juta';
+		}else{
+			return Format($n);
+		}
+		if ( $precision > 0 ) {
+			$dotzero = '.' . str_repeat( '0', $precision );
+			$n_format = str_replace( $dotzero, '', $n_format );
+		}
+	 
+		return $n_format . $suffix;
+	}
 	
 
 	

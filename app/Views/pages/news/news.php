@@ -28,13 +28,13 @@
                         <?php if($data['daily']){ ?>
                         <?php foreach ($data['daily'] as $rows) { ?>
                         <div class="row mt-3">
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <a href="<?= url('news/').$rows['url']; ?>">
-                                    <img class="align-self-start" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:100%; height:100px;">
+                                    <img class="align-self-start" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:80%; height:100px;">
                                 </a>
                             </div>
                             
-                            <div class="col-md-9 ">
+                            <div class="col-md-10 ">
                                 <a href="<?= url('news/').$rows['url']; ?>">
                                 <h5><?= strtoupper($rows['title']) ?>
                                 </a> 

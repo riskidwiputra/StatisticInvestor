@@ -10,12 +10,11 @@
         
         public function insert()
 		{ 
-            $hash           = rand();
+            $hash           = uniqid();
             $date           = date("Y-m-d H:i:s");
             $gambar         = $_FILES['img']['name'];
             $source         = $_FILES['img']['tmp_name'];
- 
-            
+
 
             $folder         = paths('path_portal_Report'); 
 
@@ -24,7 +23,7 @@
             $ekstensiGambar = strtolower(end($ekstensiGambar));
 
             if ( !in_array($ekstensiGambar, $ekstensiGambarValid)) {
-                Flasher::setFlashSweet('Failed','Your image format does not support it, you need to use the pdf format', 'error');
+                Flasher::setFlashSweet('Failed','Your Files format does not support it, you need to use the pdf format', 'error');
             return false;
             }
 
@@ -36,7 +35,7 @@
             $upload     = move_uploaded_file($source, $folder.$namaFileBaru);
             
             if ($upload  == false ) {
-                Flasher::setFlashSweet('Failed','Image system error failed to send','error'); 
+                Flasher::setFlashSweet('Failed','Files system error failed to send','error'); 
                 return false;
             }
             $data = [
