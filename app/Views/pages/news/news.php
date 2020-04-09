@@ -28,13 +28,13 @@
                         <?php if($data['daily']){ ?>
                         <?php foreach ($data['daily'] as $rows) { ?>
                         <div class="row mt-3">
-                            <div class="col-md-2">
+                            <div class="col-md-3 col-sm-5">
                                 <a href="<?= url('news/').$rows['url']; ?>">
-                                    <img class="align-self-start" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:80%; height:100px;">
+                                    <img class="align-self-start" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:100%; ">
                                 </a>
                             </div>
                             
-                            <div class="col-md-10 ">
+                            <div class="col-md-9 col-sm-7 ">
                                 <a href="<?= url('news/').$rows['url']; ?>">
                                 <h5><?= strtoupper($rows['title']) ?>
                                 </a> 
@@ -148,12 +148,12 @@
                         <?php if($data['monthly']){ ?>
                         <?php foreach ($data['monthly'] as $rows) { ?>
                         <div class="row mt-3">
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-sm-5">
                                 <a href="<?= url('news/').$rows['url']; ?>">
-                                    <img class="align-self-start" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:200px; height:100px;">
+                                    <img class="align-self-start" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:100%;">
                                 </a>
                             </div>
-                            <div class="col-md-9 ">
+                            <div class="col-md-9 col-sm-7  ">
                                 <a href="<?= url('news/').$rows['url']; ?>">
                                 <h5><?= strtoupper($rows['title']) ?>
                                 </a>

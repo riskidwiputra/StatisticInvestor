@@ -106,7 +106,7 @@
                         <label class="custom-control-label  pt-1" for="customCheck">Remember Me</label>
                       </div>
                     </div>
-                    <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium">SIGN IN<</button>
+                    <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium">SIGN IN</button>
                   </form>
                   <!-- <div class="text-center">
                     <a class="small" href="forgot-password.html">Forgot Password?</a>

@@ -1,3 +1,6 @@
+<style>
+  
+</style>
 <link rel="stylesheet" type="text/css" href="https://code.highcharts.com/css/stocktools/gui.css">
     <link rel="stylesheet" type="text/css" href="https://code.highcharts.com/css/annotations/popup.css">
 <div class="main-panel ">
@@ -78,7 +81,7 @@
                     <h4 class="font-weight-normal mb-3">Saham Perlembar <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                     </h4>
                     <!-- IDR 268.000,00-, -->
-                    <h2 class="mb-5"><?= IDR($data['saham']['harga_persaham']); ?></h2> 
+                    <h3 class="mb-5"><?= IDR($data['saham']['harga_persaham']); ?></h3> 
                     <h6 class="card-text">1 Lot = 100 Lembar</h6>
                   </div>
                 </div>
@@ -89,7 +92,9 @@
                     <img src="<?=asset('assets/images/dashboard/circle.svg');?>" class="card-img-absolute" alt="circle-image" />
                     <h4 class="font-weight-normal mb-3">Nilai Valuatif Perusahaan  <i class="mdi mdi-diamond mdi-24px float-right"></i>
                     </h4>
-                    <h2 class="mb-5"><?= number_format_short($data['valuatif']['nilai_valuatif']) ?></h2> 
+                    <h3 class=""><?= IDR($data['valuatif']['nilai_valuatif']) ?></h3>
+                    <h4 class="mb-5" style="margin-top:-5px">( <?= number_format_short($data['valuatif']['nilai_valuatif']) ?> )</h4>
+
                   </div>
                 </div>
               </div>
@@ -108,6 +113,50 @@
                 </ul>
               </nav>
             </div>
+            <!-- <section class="py-5 bg-warning py-5">
+              <div class="container">
+                  <div class="row mb-2">
+                      <div class="col-md-12">
+                        <a href="" class="text-dark">
+                        <div class="card shadow">
+                          <div class="card-body">
+                              <div class="row">
+                                  <div class="col-xs-3 col-sm-3 col-md-3 mr-0">
+                                  <img class="card-img" src="https://picsum.photos/500/230" alt="Card image cap">
+                                </br>
+                                  </div>
+                                  <div class="col-xs-8 col-sm-7 col-md-8">
+                                  <h5>Car System Alerts</h5>
+                                  <p>Check the battery and alternator conditions</p>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                        </a>
+                      </div>
+                  </div>
+                  
+                  <div class="row mb-2">
+                      <div class="col-md-12">
+                        <a href="#" class="text-dark">
+                        <div class="card shadow">
+                          <div class="card-body">
+                              <div class="row">
+                                  <div class="col-xs-1 col-sm-2 col-md-1 mr-3">
+                                  <i class="fa fa-tachometer fa-4x "></i></br>
+                                  </div>
+                                  <div class="col-xs-8 col-sm-7 col-md-8">
+                                  <h5>Car System Alerts</h5>
+                                  <p>Check the battery and alternator conditions</p>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                        </a>
+                      </div>
+                  </div>
+              </div>
+          </section> -->
             <div class="row">
             <div class="col-12 grid-margin">
                 <div class="card">
@@ -115,13 +164,13 @@
                         <h4 class="card-title">Daily</h4>
                         <?php if($data['daily']){ ?>
                         <?php foreach ($data['daily'] as $rows) { ?>
-                          <div class="row mt-4">
-                            <div class="col-md-2">
+                          <div class="row mt-4 ">
+                            <div class="col-md-3 col-sm-5 ">
                               <a href="<?= url('news/').$rows['url']; ?>">
-                              <img class="" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:80%; height:100px;">
+                              <img class="" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:100%;">
                               </a>
                             </div>
-                            <div class="col-md-10 ">
+                            <div class="col-md-9 col-sm-7 ">
                                 <a href="<?= url('news/').$rows['url']; ?>">
                                 <h4><?= strtoupper($rows['title']) ?>
                                 </a>
@@ -214,13 +263,13 @@
                         <?php if($data['monthly']){ ?>
                         <?php foreach ($data['monthly'] as $rows) { ?>
                           <div class="row  mt-3">
-                            <div class="col-md-2">
+                            <div class="col-md-3 col-sm-5 ">
                               <a href="<?= url('news/').$rows['url']; ?>">
                               <!-- <img class="" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:80%; height:100px;"> -->
-                              <img class="" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:80%; height:100px;">
+                              <img class="" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:100%;">
                               </a>
                             </div>
-                            <div class="col-md-10 ">
+                            <div class="col-md-9 col-sm-7">
                                 <a href="<?= url('news/').$rows['url']; ?>">
                                 <h5><?= strtoupper($rows['title']) ?>
                                 </a>
