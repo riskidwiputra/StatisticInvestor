@@ -171,8 +171,8 @@
                               </a>
                             </div>
                             <div class="col-md-9 col-sm-7 ">
-                                <a href="<?= url('news/').$rows['url']; ?>">
-                                <h4><?= strtoupper($rows['title']) ?>
+                                <a href="<?= url('news/').$rows['url']; ?>" style="text-decoration:none;">
+                                <h4 class="mt-2" style="text-decoration:none;"><?= strtoupper($rows['title']) ?>
                                 </a>
                                 </h4>
                                 
@@ -185,7 +185,7 @@
                                  $tes =filter_var($text, FILTER_SANITIZE_STRING);
                                  $text2= substr($tes,0,250);
                                  //  $text = htmlspecialchars_decode($rows['content']);
-                                 echo $text2." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
+                                 echo $text2.".....";
                                 
                                 // $text = htmlspecialchars_decode($rows['content']);
                                 // if ( str_word_count($rows['content']) > 60 ){
@@ -270,7 +270,7 @@
                               </a>
                             </div>
                             <div class="col-md-9 col-sm-7">
-                                <a href="<?= url('news/').$rows['url']; ?>">
+                                <a href="<?= url('news/').$rows['url']; ?>" style="text-decoration:none;">
                                 <h5><?= strtoupper($rows['title']) ?>
                                 </a>
                                 </h5>
@@ -284,7 +284,7 @@
                                  $tes =filter_var($text, FILTER_SANITIZE_STRING);
                                  $text2= substr($tes,0,250);
                                  //  $text = htmlspecialchars_decode($rows['content']);
-                                 echo $text2." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
+                                 echo $text2."....." ;
                                 
                                 // $text = htmlspecialchars_decode($rows['content']);
                                 // if ( str_word_count($rows['content']) > 60 ){

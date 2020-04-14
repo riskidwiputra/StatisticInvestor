@@ -29,7 +29,7 @@
                         <?php foreach ($data['daily'] as $rows) { ?>
                         <div class="row mt-3">
                             <div class="col-md-3 col-sm-5">
-                                <a href="<?= url('news/').$rows['url']; ?>">
+                                <a href="<?= url('news/').$rows['url']; ?>" style="text-decoration:none;">
                                     <img class="align-self-start" src="<?=path('path_portal_News');?><?= $rows['image'] ?>" alt="Generic placeholder image" style="width:100%; ">
                                 </a>
                             </div>
@@ -64,7 +64,7 @@
                                  $tes =filter_var($text, FILTER_SANITIZE_STRING);
                                  $text2= substr($tes,0,250);
                                  //  $text = htmlspecialchars_decode($rows['content']);
-                                 echo $text2." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
+                                 echo $text2."....." ;
                                 
                                 // $text2= substr($rows['content'],0,250);
 
@@ -154,7 +154,7 @@
                                 </a>
                             </div>
                             <div class="col-md-9 col-sm-7  ">
-                                <a href="<?= url('news/').$rows['url']; ?>">
+                                <a href="<?= url('news/').$rows['url']; ?>" style="text-decoration:none;">
                                 <h5><?= strtoupper($rows['title']) ?>
                                 </a>
                                 <?php if (Session::check('admin') == true || Session::check('superadmin') == true) { ?>
@@ -182,7 +182,7 @@
                                 $tes =filter_var($text, FILTER_SANITIZE_STRING);
                                 $text2= substr($tes,0,250);
                                 //  $text = htmlspecialchars_decode($rows['content']);
-                                echo $text2." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
+                                echo $text2."....." ;
                                 // echo $text." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
                                 // if ( str_word_count($rows['content']) > 60 ){
                                 // echo  substr($text,0,250)." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
