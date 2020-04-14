@@ -49,7 +49,7 @@
                     </figure>
                     <br>
                     <figure class="highcharts-figure">
-                        <div id="container2" class="chart d-none d-lg-block d-xl-block"></div>
+                        <div id="container2" class="chart"></div>
                         <p class="highcharts-description2">
                   
                         </p>
