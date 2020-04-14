@@ -64,7 +64,7 @@
                                  $tes =filter_var($text, FILTER_SANITIZE_STRING);
                                  $text2= substr($tes,0,250);
                                  //  $text = htmlspecialchars_decode($rows['content']);
-                                 echo $text2."....." ;
+                                 echo $text2.". . . . . " ;
                                 
                                 // $text2= substr($rows['content'],0,250);
 
@@ -182,7 +182,7 @@
                                 $tes =filter_var($text, FILTER_SANITIZE_STRING);
                                 $text2= substr($tes,0,250);
                                 //  $text = htmlspecialchars_decode($rows['content']);
-                                echo $text2."....." ;
+                                echo $text2.". . . . ." ;
                                 // echo $text." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
                                 // if ( str_word_count($rows['content']) > 60 ){
                                 // echo  substr($text,0,250)." .... <a href='".url('news/').$rows['url']."'><u>Selengkapnya</u></a>  " ;
